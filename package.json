@@ -1,6 +1,6 @@
 {
   "name": "node-amy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A HTML Template Framework with pure build time rendering for static websites",
   "main": "lib/index.js",
   "bin": {
