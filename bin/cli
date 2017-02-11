@@ -1,0 +1,22 @@
+#! /usr/bin/env node
+
+'use strict'
+
+const Amy = require('../lib/amy')
+const commander = require('commander')
+const version = require('../package.json').version
+const fs = require('fs-promise')
+
+commander
+    .version(version)
+    .option('-i, --input-path <path>', 'the path to your template files')
+    .option('-p, --pattern <string>', 'the pattern to match input files against')
+    .option('-o, --output-path <path>', 'the path the compiled templates are written to')
+    .option('-c, --context <path>', 'the path to your context file')
+    .parse(process.argv)
+
+const inputPath = commander.inputPath
+const pattern = commander.pattern
+const outputPath = commander.outputPath
+const context = fs.readJsonSync(commander.context)
+return Amy.compileTemplates(pattern, inputPath, outputPath, context).catch(error => console.error(error))
