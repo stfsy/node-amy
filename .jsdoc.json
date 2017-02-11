@@ -1,0 +1,14 @@
+{
+    "templates": {
+        "default": {
+            "includeDate": false
+        }
+    },
+    "opts": {
+        "encoding": "utf8",
+        "readme": "README.md",
+        "recurse": true,
+        "template": "node_modules/minami",
+        "private": false
+    }
+}
