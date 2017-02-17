@@ -18,7 +18,8 @@
     "release-major": "npm version major -m \"chore(release): v%s\"",
     "release-minor": "npm version minor -m \"chore(release): v%s\"",
     "release-patch": "npm version patch -m \"chore(release): v%s\"",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r",
+    "yarn": "yarn"
   },
   "bugs": {
     "url": "https://github.com/stfsy/node-amy/issues"
@@ -39,7 +40,8 @@
     "jsdoc": "^3.4.0",
     "minami": "^1.1.1",
     "mocha": "^2.5.3",
-    "watch": "^0.19.2"
+    "watch": "^0.19.2",
+    "yarn": "^0.20.3"
   },
   "dependencies": {
     "commander": "^2.9.0",
