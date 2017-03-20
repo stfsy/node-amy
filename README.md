@@ -9,7 +9,7 @@
 [![Github issues](https://img.shields.io/github/issues/stfsy/node-amy.svg)](https://github.com/stfsy/node-amy/issues)
 [![License](https://img.shields.io/npm/l/node-amy.svg)](https://github.com/stfsy/node-amy/blob/master/LICENSE)
 
-A HTML Template Framework with pure build time rendering
+A HTML template framework without client-side JavaScript dependencies
 
 * Clean and memorable syntax that does not break HTML
 * Import mechanism to glue templates together
