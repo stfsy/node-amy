@@ -29,7 +29,9 @@
     "type": "git",
     "url": "https://github.com/stfsy/node-amy"
   },
-  "keywords": [],
+  "keywords": [
+    "templates", "html-templates", "html", "server", "server-side", "render"
+  ],
   "author": "Stefan Pfaffel",
   "license": "MIT",
   "devDependencies": {
