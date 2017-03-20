@@ -1,7 +1,7 @@
 {
   "name": "node-amy",
   "version": "1.0.1",
-  "description": "A HTML Template Framework with pure build time rendering for static websites",
+  "description": "A HTML template framework without client-side JavaScript dependencies",
   "main": "lib/index.js",
   "bin": {
     "node-amy": "bin/cli"
