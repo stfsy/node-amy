@@ -30,7 +30,12 @@
     "url": "https://github.com/stfsy/node-amy"
   },
   "keywords": [
-    "templates", "html-templates", "html", "server", "server-side", "render"
+    "templates",
+    "html-templates",
+    "html",
+    "server",
+    "server-side",
+    "render"
   ],
   "author": "Stefan Pfaffel",
   "license": "MIT",
@@ -49,6 +54,6 @@
     "commander": "^2.9.0",
     "fs-promise": "^0.5.0",
     "globby": "^6.0.0",
-    "node-html-light": "^0.7.0"
+    "node-html-light": "github:stfsy/node-html-light#release-1.0"
   }
 }
