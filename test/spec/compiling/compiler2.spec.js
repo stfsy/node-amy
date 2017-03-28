@@ -66,7 +66,7 @@ describe('Compiler2', () => {
                 const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
 
                 expect(footer.length).to.equal(1)
-                expect(footer[0].name()).to.equal('footer')
+                expect(footer[0].name).to.equal('footer')
             }).then(done, done)
         })
         it('should import listing.html multiple times', (done) => {
@@ -75,8 +75,8 @@ describe('Compiler2', () => {
                 const list = nodes.find({ name: 'div' }, [{ key: 'class', value: 'list' }])
 
                 expect(list.length).to.equal(2)
-                expect(list[0].name()).to.equal('div')
-                expect(list[1].name()).to.equal('div')
+                expect(list[0].name).to.equal('div')
+                expect(list[1].name).to.equal('div')
                 expect(list[0].attribute('class').value).to.equal('list')
                 expect(list[1].attribute('class').value).to.equal('list')
             }).then(done, done)
@@ -113,7 +113,7 @@ describe('Compiler2', () => {
                 const header = nodes.find({ name: 'header' }, [{ key: 'id', value: 'header' }])
 
                 expect(header.length).to.equal(1)
-                expect(header[0].name()).to.equal('header')
+                expect(header[0].name).to.equal('header')
             }).then(done, done)
         })
         it('should import billing.html', (done) => {
@@ -122,7 +122,7 @@ describe('Compiler2', () => {
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'billing' }])
 
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('div')
+                expect(div[0].name).to.equal('div')
             }).then(done, done)
         })
         it('should import footer.html', (done) => {
@@ -131,7 +131,7 @@ describe('Compiler2', () => {
                 const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
 
                 expect(footer.length).to.equal(1)
-                expect(footer[0].name()).to.equal('footer')
+                expect(footer[0].name).to.equal('footer')
             }).then(done, done)
         })
         it('should import header.html', (done) => {
@@ -140,7 +140,7 @@ describe('Compiler2', () => {
                 const header = nodes.find({ name: 'header' }, [{ key: 'id', value: 'header' }])
 
                 expect(header.length).to.equal(1)
-                expect(header[0].name()).to.equal('header')
+                expect(header[0].name).to.equal('header')
             }).then(done, done)
         })
         it('should import phones.html two times', (done) => {
@@ -148,7 +148,7 @@ describe('Compiler2', () => {
                 const nodes = Nodes.of(compiledNode)
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'phones' }])
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('div')
+                expect(div[0].name).to.equal('div')
                 expect(div[0].attribute('id').value).to.equal('phones')
             }).then(done, done)
         })
@@ -157,8 +157,8 @@ describe('Compiler2', () => {
                 const nodes = Nodes.of(compiledNode)
                 const footers = nodes.find({ name: 'body' })[0].find({ name: 'footer' })
                 expect(footers.length).to.equal(2)
-                expect(footers[0].name()).to.equal('footer')
-                expect(footers[1].name()).to.equal('footer')
+                expect(footers[0].name).to.equal('footer')
+                expect(footers[1].name).to.equal('footer')
             }).then(done, done)
         })
         it('should resursively import droid.html', (done) => {
@@ -166,7 +166,7 @@ describe('Compiler2', () => {
                 const nodes = Nodes.of(compiledNode)
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'droid' }])
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('div')
+                expect(div[0].name).to.equal('div')
                 expect(div[0].attribute('id').value).to.equal('droid')
             }).then(done, done)
         })
@@ -176,7 +176,7 @@ describe('Compiler2', () => {
                 const div = nodes.find({ name: 'span' }, [{ key: 'id', value: 'snexu-summary' }])
 
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('span')
+                expect(div[0].name).to.equal('span')
                 expect(div[0].attribute('id').value).to.equal('snexu-summary')
             }).then(done, done)
         })
