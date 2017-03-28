@@ -64,7 +64,6 @@ describe('Compiler2', () => {
             compiler._compile([commentNode], context).then((compiledNode) => {
                 const nodes = Nodes.of(compiledNode)
                 const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
-
                 expect(footer.length).to.equal(1)
                 expect(footer[0].name).to.equal('footer')
             }).then(done, done)
@@ -72,13 +71,14 @@ describe('Compiler2', () => {
         it('should import listing.html multiple times', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
                 const nodes = Nodes.of(compiledNode)
+
                 const list = nodes.find({ name: 'div' }, [{ key: 'class', value: 'list' }])
 
                 expect(list.length).to.equal(2)
                 expect(list[0].name).to.equal('div')
                 expect(list[1].name).to.equal('div')
-                expect(list[0].attribute('class').value).to.equal('list')
-                expect(list[1].attribute('class').value).to.equal('list')
+                expect(list[0].attributes.class).to.equal('list')
+                expect(list[1].attributes.class).to.equal('list')
             }).then(done, done)
         })
         it('should interpolate header.html correctly', (done) => {
@@ -149,7 +149,7 @@ describe('Compiler2', () => {
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'phones' }])
                 expect(div.length).to.equal(1)
                 expect(div[0].name).to.equal('div')
-                expect(div[0].attribute('id').value).to.equal('phones')
+                expect(div[0].attributes.id).to.equal('phones')
             }).then(done, done)
         })
         it('should import footer.html three times', (done) => {
@@ -167,7 +167,7 @@ describe('Compiler2', () => {
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'droid' }])
                 expect(div.length).to.equal(1)
                 expect(div[0].name).to.equal('div')
-                expect(div[0].attribute('id').value).to.equal('droid')
+                expect(div[0].attributes.id).to.equal('droid')
             }).then(done, done)
         })
         it('should resursively import snexu.html', (done) => {
@@ -177,7 +177,7 @@ describe('Compiler2', () => {
 
                 expect(div.length).to.equal(1)
                 expect(div[0].name).to.equal('span')
-                expect(div[0].attribute('id').value).to.equal('snexu-summary')
+                expect(div[0].attributes.id).to.equal('snexu-summary')
             }).then(done, done)
         })
     })
@@ -301,7 +301,7 @@ describe('Compiler2', () => {
         })
         it('should replace the id property path in the attribute with the correct value', () => {
             compiler._interpolate(firstNameTextNode, context)
-            expect(firstNameTextNode[0].attribute('id').value).to.equal(context.id + '')
+            expect(firstNameTextNode[0].attributes.id).to.equal(context.id + '')
         })
         it('should replace the id property path with the correct value', () => {
             compiler._interpolate(idTextNode, context)
@@ -313,7 +313,7 @@ describe('Compiler2', () => {
             compiler._interpolate(idTextNode, context)
 
             const interpolatedNode = idTextNode[0].find({ type: 'tag', name: 'span' })[0]
-            expect(interpolatedNode.attribute('name').value).to.equal(context.user.name.first)
+            expect(interpolatedNode.attributes.name).to.equal(context.user.name.first)
         })
     })
 })
