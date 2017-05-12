@@ -62,28 +62,28 @@ describe('Compiler2', () => {
     describe('._compile', () => {
         it('should import footer.html1', (done) => {
             compiler._compile([commentNode], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
-
                 expect(footer.length).to.equal(1)
-                expect(footer[0].name()).to.equal('footer')
+                expect(footer[0].name).to.equal('footer')
             }).then(done, done)
         })
         it('should import listing.html multiple times', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
+
                 const list = nodes.find({ name: 'div' }, [{ key: 'class', value: 'list' }])
 
                 expect(list.length).to.equal(2)
-                expect(list[0].name()).to.equal('div')
-                expect(list[1].name()).to.equal('div')
-                expect(list[0].attribute('class').value).to.equal('list')
-                expect(list[1].attribute('class').value).to.equal('list')
+                expect(list[0].name).to.equal('div')
+                expect(list[1].name).to.equal('div')
+                expect(list[0].attributes.class).to.equal('list')
+                expect(list[1].attributes.class).to.equal('list')
             }).then(done, done)
         })
         it('should interpolate header.html correctly', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const textNodes = nodes.find('h1')[0].find({ type: Node.TYPE_TEXT })
 
                 expect(textNodes.length).to.equal(1)
@@ -92,7 +92,7 @@ describe('Compiler2', () => {
         })
         it('should import listing.html multiple times and interpolate the manufacturer text element correctly', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const list = nodes.find({ name: 'div' }, [{ key: 'class', value: 'list' }])
 
                 expect(list.length).to.equal(2)
@@ -109,75 +109,75 @@ describe('Compiler2', () => {
     describe('._compile', () => {
         it('should import header.html', (done) => {
             compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const header = nodes.find({ name: 'header' }, [{ key: 'id', value: 'header' }])
 
                 expect(header.length).to.equal(1)
-                expect(header[0].name()).to.equal('header')
+                expect(header[0].name).to.equal('header')
             }).then(done, done)
         })
         it('should import billing.html', (done) => {
             compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'billing' }])
 
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('div')
+                expect(div[0].name).to.equal('div')
             }).then(done, done)
         })
         it('should import footer.html', (done) => {
             compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
 
                 expect(footer.length).to.equal(1)
-                expect(footer[0].name()).to.equal('footer')
+                expect(footer[0].name).to.equal('footer')
             }).then(done, done)
         })
         it('should import header.html', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const header = nodes.find({ name: 'header' }, [{ key: 'id', value: 'header' }])
 
                 expect(header.length).to.equal(1)
-                expect(header[0].name()).to.equal('header')
+                expect(header[0].name).to.equal('header')
             }).then(done, done)
         })
         it('should import phones.html two times', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'phones' }])
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('div')
-                expect(div[0].attribute('id').value).to.equal('phones')
+                expect(div[0].name).to.equal('div')
+                expect(div[0].attributes.id).to.equal('phones')
             }).then(done, done)
         })
         it('should import footer.html three times', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const footers = nodes.find({ name: 'body' })[0].find({ name: 'footer' })
                 expect(footers.length).to.equal(2)
-                expect(footers[0].name()).to.equal('footer')
-                expect(footers[1].name()).to.equal('footer')
+                expect(footers[0].name).to.equal('footer')
+                expect(footers[1].name).to.equal('footer')
             }).then(done, done)
         })
         it('should resursively import droid.html', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const div = nodes.find({ name: 'div' }, [{ key: 'id', value: 'droid' }])
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('div')
-                expect(div[0].attribute('id').value).to.equal('droid')
+                expect(div[0].name).to.equal('div')
+                expect(div[0].attributes.id).to.equal('droid')
             }).then(done, done)
         })
         it('should resursively import snexu.html', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
-                const nodes = Nodes.fromArray(compiledNode)
+                const nodes = Nodes.of(compiledNode)
                 const div = nodes.find({ name: 'span' }, [{ key: 'id', value: 'snexu-summary' }])
 
                 expect(div.length).to.equal(1)
-                expect(div[0].name()).to.equal('span')
-                expect(div[0].attribute('id').value).to.equal('snexu-summary')
+                expect(div[0].name).to.equal('span')
+                expect(div[0].attributes.id).to.equal('snexu-summary')
             }).then(done, done)
         })
     })
@@ -301,7 +301,7 @@ describe('Compiler2', () => {
         })
         it('should replace the id property path in the attribute with the correct value', () => {
             compiler._interpolate(firstNameTextNode, context)
-            expect(firstNameTextNode[0].attribute('id').value).to.equal(context.id + '')
+            expect(firstNameTextNode[0].attributes.id).to.equal(context.id + '')
         })
         it('should replace the id property path with the correct value', () => {
             compiler._interpolate(idTextNode, context)
@@ -313,7 +313,7 @@ describe('Compiler2', () => {
             compiler._interpolate(idTextNode, context)
 
             const interpolatedNode = idTextNode[0].find({ type: 'tag', name: 'span' })[0]
-            expect(interpolatedNode.attribute('name').value).to.equal(context.user.name.first)
+            expect(interpolatedNode.attributes.name).to.equal(context.user.name.first)
         })
     })
 })
