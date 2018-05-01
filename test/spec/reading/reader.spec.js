@@ -27,39 +27,39 @@ describe('Reader', () => {
             reader.matchFiles(['templates/*.html'], 'test/fixtures').then((contents) => {
                 const valids = ['templates/checkout.html', 'templates/comment.html', 'templates/home.html']
                 expect(contents.length).to.equal(valids.length)
-                expect(contents).to.eql(valids)
+                expect(contents).to.have.members(valids)
             }).then(done, done)
         })
         it('should return an array with one element', (done) => {
             reader.matchFiles('templates/home.html', 'test/fixtures').then((contents) => {
                 const valids = ['templates/home.html']
                 expect(contents.length).to.equal(valids.length)
-                expect(contents).to.eql(valids)
+                expect(contents).to.have.members(valids)
             }).then(done, done)
         })
         it('should return an array with one element', (done) => {
             reader.matchFiles('templates/checkout.html', 'test/fixtures').then((contents) => {
                 const valids = ['templates/checkout.html']
                 expect(contents.length).to.equal(valids.length)
-                expect(contents).to.eql(valids)
+                expect(contents).to.have.members(valids)
             }).then(done, done)
         })
         it('should return an array with 6 elements', (done) => {
             reader.matchFiles(['**/*.html', '!output/**'], 'test/fixtures').then((contents) => {
                 expect(contents.length).to.equal(htmlFiles.length)
-                expect(contents).to.eql(htmlFiles)
+                expect(contents).to.have.members(htmlFiles)
             }).then(done, done)
         })
         it('should return an array with 6 elements', (done) => {
             reader.matchFiles(['**/*.html'], 'test/fixtures').then((contents) => {
                 expect(contents.length).to.equal(htmlFiles.length)
-                expect(contents).to.eql(htmlFiles)
+                expect(contents).to.have.members(htmlFiles)
             }).then(done, done)
         })
         it('should return an array with 6 elements', (done) => {
             reader.matchFiles(['**/*.html'], 'test/fixtures').then((contents) => {
                 expect(contents.length).to.equal(htmlFiles.length)
-                expect(contents).to.eql(htmlFiles)
+                expect(contents).to.have.members(htmlFiles)
             }).then(done, done)
         })
     })
