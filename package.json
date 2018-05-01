@@ -18,8 +18,7 @@
     "release-major": "npm version major -m \"chore(release): v%s\"",
     "release-minor": "npm version minor -m \"chore(release): v%s\"",
     "release-patch": "npm version patch -m \"chore(release): v%s\"",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r",
-    "yarn": "yarn"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r"
   },
   "bugs": {
     "url": "https://github.com/stfsy/node-amy/issues"
@@ -40,20 +39,19 @@
   "author": "Stefan Pfaffel",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-spies": "^0.7.1",
-    "conventional-changelog-cli": "^1.2.0",
+    "chai": "^4.1.2",
+    "chai-spies": "^1.0.0",
+    "conventional-changelog-cli": "^1.3.22",
     "istanbul": "^0.4.4",
-    "jsdoc": "^3.4.0",
+    "jsdoc": "^3.5.5",
     "minami": "^1.1.1",
-    "mocha": "^2.5.3",
-    "watch": "^0.19.2",
-    "yarn": "^0.20.3"
+    "mocha": "^5.1.1",
+    "watch": "^1.0.2"
   },
   "dependencies": {
-    "commander": "^2.9.0",
-    "fs-promise": "^0.5.0",
-    "globby": "^6.0.0",
+    "commander": "^2.15.1",
+    "fs-promise": "^2.0.3",
+    "globby": "^8.0.1",
     "node-html-light": "^1.0.0"
   }
 }
