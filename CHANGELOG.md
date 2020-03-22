@@ -1,3 +1,13 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/stfsy/node-amy/compare/v1.3.0...v1.4.0) (2020-03-22)
+
+
+### Features
+
+* update dependencies ([6d2967c](https://github.com/stfsy/node-amy/commit/6d2967c))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/stfsy/node-amy/compare/v1.0.1...v1.1.0) (2017-05-12)
 
