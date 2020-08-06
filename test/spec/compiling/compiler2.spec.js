@@ -28,7 +28,7 @@ describe('Compiler2', () => {
     const commentPath = resolve('test', 'fixtures', 'templates', 'comment.html')
 
     beforeEach(() => {
-        compiler = new Compiler()
+        compiler = new Compiler('')
         firstNameTextNode = [Node.fromString('<div id="{{ id }}">{{ user.name.first }}</div>')]
         idTextNode = [Node.fromString('<div><p>{{ id }}<p><div><span name="{{ user.name.first }}"></span></div></div>')]
         context = {

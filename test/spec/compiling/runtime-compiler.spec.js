@@ -19,29 +19,29 @@ describe('RuntimeCompiler', () => {
     let context = null
 
     beforeEach(() => {
-        compiler = new Compiler()
+        compiler = new Compiler('test/fixtures-runtime-feature/templates')
         context = {
-            user: {
-                name: {
-                    first: 'Tony',
-                    second: 'Lambada'
-                }
-            },
-            phones: [
-                {
-                    manufacturer: 'aManufacturer'
+                user: {
+                    name: {
+                        first: 'Tony',
+                        second: 'Lambada'
+                    }
                 },
-                {
-                    manufacturer: 'anotherManufacturer'
-                }
-            ],
-            id: 4815162342
-        }
+                phones: [
+                    {
+                        manufacturer: 'aManufacturer'
+                    },
+                    {
+                        manufacturer: 'anotherManufacturer'
+                    }
+                ],
+                id: 4815162342
+            }
     })
 
     describe('.compile', () => {
         it('should compile home.html and return a html string', () => {
-            return compiler.initialize('**/*.html', 'test/fixtures-runtime-feature/templates').then(() => {
+            return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context)
             }).then((contents) => {
                 console.log('Compiled this ' + contents)
@@ -53,7 +53,7 @@ describe('RuntimeCompiler', () => {
         })
 
         it('should compile comment.html and return a html string', () => {
-            return compiler.initialize('**/*.html', 'test/fixtures-runtime-feature/templates').then(() => {
+            return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('comment.html', context)
             }).then((contents) => {
                 expect(contents).to.contain('<footer id="footer"></footer>')
@@ -61,7 +61,7 @@ describe('RuntimeCompiler', () => {
         })
 
         it('should compile checkout.html and return a html string', () => {
-            return compiler.initialize('**/*.html', 'test/fixtures-runtime-feature/templates').then(() => {
+            return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('checkout.html', context)
             }).then((contents) => {
                 console.log('Billings', contents)
