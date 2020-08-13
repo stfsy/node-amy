@@ -277,7 +277,7 @@ describe('Compiler2', () => {
         const htmlPath = resolve('test', 'fixtures', 'templates', 'shopping', 'droid.html')
 
         it('should import read and parse the given files and return the html nodes', (done) => {
-            compiler._import(null, null, { arguments: () => htmlPath }, [], context).then((nodes) => {
+            compiler._import({ arguments: () => htmlPath }, [], context).then((nodes) => {
                 expect(nodes).to.be.an('array')
                 expect(nodes.length).to.equal(1)
                 expect(nodes[0].find('div', [{ key: 'id', value: 'droid' }])).to.be.an('array')
@@ -286,7 +286,7 @@ describe('Compiler2', () => {
             }).catch(done)
         })
         it('should throw a helpful error if a file cannot be found', (done) => {
-            compiler._import(null, null, { arguments: () => 'forcing_errors.html' }, context).catch((e) => {
+            compiler._import({ arguments: () => 'forcing_errors.html' }, context).catch((e) => {
                 expect(e.message).to.contain('no such file')
                 expect(e.path).to.contain((resolve('forcing_errors.html')))
                 done()
