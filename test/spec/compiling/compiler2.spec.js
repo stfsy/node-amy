@@ -21,6 +21,7 @@ describe('Compiler2', () => {
     let commentNode = null
     let firstNameTextNode = null
     let idTextNode = null
+    let radioButtonInput = null
     let context = null
 
     const checkoutHtmlPath = resolve('test', 'fixtures', 'templates', 'checkout.html')
@@ -29,6 +30,7 @@ describe('Compiler2', () => {
 
     beforeEach(() => {
         compiler = new Compiler('')
+        radioButtonInput = [Node.fromString('<input type="radio" checked="{{ user.isFanboy }}"/>')]
         firstNameTextNode = [Node.fromString('<div id="{{ id }}">{{ user.name.first }}</div>')]
         idTextNode = [Node.fromString('<div><p>{{ id }}<p><div><span name="{{ user.name.first }}"></span></div></div>')]
         context = {
@@ -36,7 +38,8 @@ describe('Compiler2', () => {
                 name: {
                     first: 'Tony',
                     second: 'Lambada'
-                }
+                },
+                isFanboy: false
             },
             phones: [
                 {
@@ -314,6 +317,10 @@ describe('Compiler2', () => {
 
             const interpolatedNode = idTextNode[0].find({ type: 'tag', name: 'span' })[0]
             expect(interpolatedNode.attributes.name).to.equal(context.user.name.first)
+        })
+        it('should remove the checked attribute if value is falsy', () => {
+            compiler._interpolate(radioButtonInput, context)
+            expect(radioButtonInput[0].attributes.checked).to.be.undefined
         })
     })
 })
