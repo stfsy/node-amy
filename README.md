@@ -80,18 +80,6 @@ In the example below you can see, that the file index.html contains various **im
 - Description: Will declare variables in a component that will be replaced at runtime
 - Syntax: `{{ variableName }}`
 
-###  import
-```HTML
-<div>
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Experience</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-       <!-- @amy import amy/views/experience/blocks/list.html with experience as experience-->
-    </div>
-</div>
-```
-
 ## Installation
 
 ```bash
