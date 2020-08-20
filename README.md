@@ -40,8 +40,8 @@ In the example below you can see, that the file index.html contains various **im
 
 ### Commands
 #### import
-##### index.html
 ```html
+##### index.html
 <head>
     <!-- @amy import amy/views/base/meta.html-->
     <!-- @amy import amy/views/base/css.html-->
@@ -54,8 +54,8 @@ In the example below you can see, that the file index.html contains various **im
   - contextName is a property in the current rendering context
 
 #### forEach
-##### workexperience.html
 ```html 
+workexperience.html
 <div>
     <div>
         <h2>Work Experience</h2>
