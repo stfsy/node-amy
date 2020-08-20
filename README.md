@@ -20,7 +20,7 @@ In the example below you can see, that the file index.html contains various **im
 * JavaScript,
 * and of course the content of the page
 #### index.html
-```HTML
+```html
 <!DOCTYPE html>
 <html>
 
@@ -40,19 +40,27 @@ In the example below you can see, that the file index.html contains various **im
 
 ### Commands
 #### import
-- Description: Will import a component into the current html page
+##### index.html
+```html
+<head>
+    <!-- @amy import amy/views/base/meta.html-->
+    <!-- @amy import amy/views/base/css.html-->
+</head>
+```
+- Description: Will import a compo  nent into the current html page
 - Syntax: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]]-->`
 - Requirements: 
   - path/to/file.html must be a valid relative path to a file
   - contextName is a property in the current rendering context
 
 #### forEach
-```HTML
+##### workexperience.html
+```html 
 <div>
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Work Experience</h2>
+    <div>
+        <h2>Work Experience</h2>
     </div>
-    <div class="mdl-card__supporting-text">
+    <div>
     <!-- @amy import amy/views/experience/blocks/listItem.html forEach experience as experience -->
     </div>
 </div>
@@ -70,8 +78,8 @@ In the example below you can see, that the file index.html contains various **im
 
 #### interpolation
 ``` HTML
-<li class="mdl-list__item">
-    <span class="mdl-chip__contact">{{ experience.label }}</span>
+<li>
+    <span>{{ experience.label }}</span>
     </span>
     <span>{{ experience.text }}</span>
     </span>
