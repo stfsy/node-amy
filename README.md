@@ -14,6 +14,11 @@
 **amy** allows you to split up your web app in small components. **amy** will merge these components at runtime and replace variables. 
 
 ### Example
+In the example below you can see, that the file index.html contains various **import** commands. At runtime these commands will add
+* Meta Tags,
+* CSS,
+* JavaScript,
+* and of course the content of the page
 #### index.html
 ```HTML
 <!DOCTYPE html>
@@ -43,26 +48,12 @@
 #### import forEach
 - Will import a component multiple times into the current html page
 - Syntax: `<!-- @amy import path/to/file.html forEach context [as contextAlias]-->`
+- Requirements: 
+  - path/to/file.html must be a valid relative path to a file
+  - contextName is a property in the current rendering context
+  - the value of context[contextName] must be of type Array
 #### add
 - 
-
-Index.html contains various **import** commands to add
-* Meta Tags,
-* CSS,
-* JavaScript,
-* and of course the content of the page.
-
-Commands are executed right after **amy** was started with the
-* input directory,
-* output directory,
-* a pattern to match files in the input directory and
-* the path to the JSON context file
-
-The **Context** file will be read and it's contents will be available for interpolation. **Commands** can limit the scope of the context and only expose
-a portion of the whole context to **child commands**.
-
-The **import** command is started with some little yelling **@amy** and contains the path to the file that should be inserted. 
-The command can be extended by adding the subcommands **as** and/or **with**. 
 
 ####  amy/views/experience/card.html
 ```HTML
