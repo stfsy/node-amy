@@ -41,7 +41,7 @@ In the example below you can see, that the file index.html contains various **im
 ### Commands
 #### import
 ```html
-##### index.html
+index.html
 <head>
     <!-- @amy import amy/views/base/meta.html-->
     <!-- @amy import amy/views/base/css.html-->
