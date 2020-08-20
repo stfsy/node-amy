@@ -90,10 +90,11 @@ In the example below you can see, that the file index.html contains various **im
        <!-- @amy import amy/views/experience/blocks/list.html with experience as experience-->
     </div>
 </div>
+```
 
 ## Installation
 
-```
+```bash
 npm install node-amy --save
 ```
 
