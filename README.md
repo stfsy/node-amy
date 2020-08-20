@@ -39,25 +39,50 @@ In the example below you can see, that the file index.html contains various **im
 ```
 
 ### Commands
-#### import with
-- Descption: Will import a component into the current html page
+#### import
+- Description: Will import a component into the current html page
 - Syntax: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]]-->`
 - Requirements: 
   - path/to/file.html must be a valid relative path to a file
   - contextName is a property in the current rendering context
-#### import forEach
-- Will import a component multiple times into the current html page
+
+#### forEach
+```HTML
+<div>
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Work Experience</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+    <!-- @amy import amy/views/experience/blocks/listItem.html forEach experience as experience -->
+    </div>
+</div>
+```
+- Description: Will import a component multiple times into the current html page
 - Syntax: `<!-- @amy import path/to/file.html forEach context [as contextAlias]-->`
 - Requirements: 
   - path/to/file.html must be a valid relative path to a file
   - contextName is a property in the current rendering context
   - the value of context[contextName] must be of type Array
-#### add
-- 
 
-####  amy/views/experience/card.html
+#### add
+- Description: Will import a component into another component
+- Syntax: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]] and add path/to/another/file.html [with contextName [as contextAlias]] -->`
+
+#### interpolation
+``` HTML
+<li class="mdl-list__item">
+    <span class="mdl-chip__contact">{{ experience.label }}</span>
+    </span>
+    <span>{{ experience.text }}</span>
+    </span>
+</li>
+```
+- Description: Will declare variables in a component that will be replaced at runtime
+- Syntax: `{{ variableName }}`
+
+###  import
 ```HTML
-<div class="mdl-card stfsy-card mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-shadow--2dp">
+<div>
     <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">Experience</h2>
     </div>
