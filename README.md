@@ -33,6 +33,19 @@
 </html>
 ```
 
+### Commands
+#### import with
+- Descption: Will import a component into the current html page
+- Syntax: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]]-->`
+- Requirements: 
+  - path/to/file.html must be a valid relative path to a file
+  - contextName is a property in the current rendering context
+#### import forEach
+- Will import a component multiple times into the current html page
+- Syntax: `<!-- @amy import path/to/file.html forEach context [as contextAlias]-->`
+#### add
+- 
+
 Index.html contains various **import** commands to add
 * Meta Tags,
 * CSS,
