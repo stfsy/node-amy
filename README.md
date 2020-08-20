@@ -9,12 +9,11 @@
 [![Github issues](https://img.shields.io/github/issues/stfsy/node-amy.svg)](https://github.com/stfsy/node-amy/issues)
 [![License](https://img.shields.io/npm/l/node-amy.svg)](https://github.com/stfsy/node-amy/blob/master/LICENSE)
 
-A HTML template framework without client-side JavaScript dependencies
+## A HTML template framework **without** client-side dependencies. 
 
-* Clean and memorable syntax that does not break HTML
-* Import mechanism to glue templates together
-* Interpolation mechanism to keep partials free of concrete values
+**amy** allows you to split up your web app in small components. **amy** will merge these components at runtime and replace variables. 
 
+### Example
 #### index.html
 ```HTML
 <!DOCTYPE html>
