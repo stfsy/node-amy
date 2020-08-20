@@ -90,32 +90,6 @@ In the example below you can see, that the file index.html contains various **im
        <!-- @amy import amy/views/experience/blocks/list.html with experience as experience-->
     </div>
 </div>
-```
-Before importing **amy/views/experience/card.html**, gets the value (*v1*) of the key _stfsy_ of the current context. All commands inside the **card.html** file will only get access to the value *v1*. Inside the **card.html** file is another **import** 
-command, that will get the value (*v2*) of the key _experience_ of the value *v1* and so on..
-#### amy/views/experience/blocks/list.html
-```HTML
-<ul class="mdl-list stfsy-list-no-margin">
-    <!-- @amy import amy/views/experience/blocks/listItem.html forEach experience as experience -->
-</ul>
-```
-The **forEach** command will add **amy/views/experience/blocks/listItem.html** for each element in the array that is the value 
-of the key _experience_ of the current context. Each import is invoked with a context object that contains a single element
-of the array. Each context element will be accessible through the key **experience** as stated by the **as** command.
-
-#### amy/views/experience/blocks/listItem.html
-``` HTML
-<li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <span class="mdl-chip stfsy-chip mdl-chip--contact">
-    <span class="mdl-chip__contact mdl-color--secondary mdl-color-text--primary">{{ experience.label }}</span>
-    </span>
-    <span>{{ experience.text }}</span>
-    </span>
-</li>
-```
-Expecting the current context to contain an object named __experience__ the **import** command will replace 
-both placeholders with the actual values.
 
 ## Installation
 
