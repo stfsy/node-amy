@@ -93,6 +93,24 @@ describe('Compiler2', () => {
                 expect(textNodes[0].get().data).to.equal('Hello Tony!')
             }).then(done, done)
         })
+        it('should include copyright in header.html', (done) => {
+            compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find({ name: 'span' }, [{ key: 'id', value: 'copyright' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("© 2020");
+            }).then(done, done)
+        })
+        it('should include stfsy in header.html', (done) => {
+            compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find({ name: 'span' }, [{ key: 'id', value: 'who' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("stfsy");
+            }).then(done, done)
+        })
         it('should import listing.html multiple times and interpolate the manufacturer text element correctly', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
                 const nodes = Nodes.of(compiledNode)
@@ -105,6 +123,24 @@ describe('Compiler2', () => {
                     expect(textNode.length).to.equal(1)
                     expect(textNode[0].get().data).to.equal(context.phones[index].manufacturer)
                 })
+            }).then(done, done)
+        })
+        it('should include copyright.html', (done) => {
+            compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find({ name: 'span' }, [{ key: 'id', value: 'copyright' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("© 2020");
+            }).then(done, done)
+        })
+        it('should include copyright.html and span tag stfsy', (done) => {
+            compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find({ name: 'span' }, [{ key: 'id', value: 'who' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("stfsy");
             }).then(done, done)
         })
     })
@@ -196,7 +232,7 @@ describe('Compiler2', () => {
             compiler.compile('templates/*.html', 'test/fixtures', 'test/output', context).then(() => {
                 return fs.readdir(resolve('test', 'output', 'templates'))
             }).then((contents) => {
-                const valids = ['checkout.html', 'comment.html', 'home.html']
+                const valids = ['checkout.html', 'comment.html', 'copyright.html', 'home.html']
                 expect(contents.length).to.equal(valids.length)
                 expect(contents).to.eql(valids)
             }).then(done, done)
@@ -205,7 +241,7 @@ describe('Compiler2', () => {
             compiler.compile('*.html', 'test/fixtures/templates', 'test/output', context).then(() => {
                 return fs.readdir(resolve('test', 'output'))
             }).then((contents) => {
-                const valids = ['checkout.html', 'comment.html', 'home.html']
+                const valids = ['checkout.html', 'comment.html', 'copyright.html', 'home.html']
                 expect(contents.length).to.equal(valids.length)
                 expect(contents).to.eql(valids)
             }).then(done, done)
@@ -214,7 +250,7 @@ describe('Compiler2', () => {
             compiler.compile('**/*.html', 'test/fixtures/templates', 'test/output', context).then(() => {
                 return fs.readdir(resolve('test', 'output'))
             }).then((contents) => {
-                const valids = ['billing', 'checkout.html', 'comment.html', 'home.html', 'main', 'shopping']
+                const valids = ['billing', 'checkout.html', 'comment.html', 'copyright.html', 'home.html', 'main', 'shopping']
                 expect(contents.length).to.equal(valids.length)
                 expect(contents).to.eql(valids)
             }).then(done, done)

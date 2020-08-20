@@ -9,6 +9,7 @@ describe('Reader', () => {
     let reader = null
     const htmlFiles = ['templates/billing/billing.html',
         'templates/checkout.html',
+        'templates/copyright.html',
         'templates/comment.html',
         'templates/home.html',
         'templates/main/footer.html',
@@ -25,7 +26,7 @@ describe('Reader', () => {
     describe('.matchFiles', () => {
         it('should return an array with two elements', (done) => {
             reader.matchFiles(['templates/*.html'], 'test/fixtures').then((contents) => {
-                const valids = ['templates/checkout.html', 'templates/comment.html', 'templates/home.html']
+                const valids = ['templates/checkout.html', 'templates/copyright.html', 'templates/comment.html', 'templates/home.html']
                 expect(contents.length).to.equal(valids.length)
                 expect(contents).to.have.members(valids)
             }).then(done, done)
