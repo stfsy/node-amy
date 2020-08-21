@@ -173,6 +173,24 @@ describe('Compiler2', () => {
                 expect(footer[0].name).to.equal('footer')
             }).then(done, done)
         })
+        it('should add copyright', (done) => {
+            compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find({ name: 'span' }, [{ key: 'id', value: 'copyright' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("© 2020");
+            }).then(done, done)
+        })
+        it('should add author', (done) => {
+            compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find({ name: 'span' }, [{ key: 'id', value: 'who' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("stfsy");
+            }).then(done, done)
+        })
         it('should import header.html', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
                 const nodes = Nodes.of(compiledNode)
