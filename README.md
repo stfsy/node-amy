@@ -77,7 +77,6 @@ In the example below you can see, that the file index.html contains various **im
 ``` HTML
 <li>
     <span>{{ experience.label }}</span>
-    </span>
 </li>
 ```
 - Description: Will declare variables in a component that will be replaced at runtime
