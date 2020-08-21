@@ -41,21 +41,18 @@ In the example below you can see, that the file index.html contains various **im
 ### Commands
 #### import
 ```html
-index.html
 <head>
     <!-- @amy import amy/views/base/meta.html-->
-    <!-- @amy import amy/views/base/css.html-->
 </head>
 ```
-- Description: Will import a compo  nent into the current html page
-- Syntax: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]]-->`
-- Requirements: 
+- **Description**: Will import a compo  nent into the current html page
+- **Syntax**: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]]-->`
+- **Requirements**: 
   - path/to/file.html must be a valid relative path to a file
   - contextName is a property in the current rendering context
 
 #### forEach
 ```html 
-workexperience.html
 <div>
     <div>
         <h2>Work Experience</h2>
@@ -65,23 +62,21 @@ workexperience.html
     </div>
 </div>
 ```
-- Description: Will import a component multiple times into the current html page
-- Syntax: `<!-- @amy import path/to/file.html forEach context [as contextAlias]-->`
-- Requirements: 
+- **Description**: Will import a component multiple times into the current html page
+- **Syntax**: `<!-- @amy import path/to/file.html forEach context [as contextAlias]-->`
+- **Requirements**: 
   - path/to/file.html must be a valid relative path to a file
   - contextName is a property in the current rendering context
   - the value of context[contextName] must be of type Array
 
 #### add
-- Description: Will import a component into another component
-- Syntax: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]] and add path/to/another/file.html [with contextName [as contextAlias]] -->`
+- **Description**: Will import a component into another component
+- **Syntax**: `<!-- @amy import path/to/file.html [with contextName [as contextAlias]] and add path/to/another/file.html [with contextName [as contextAlias]] -->`
 
 #### interpolation
 ``` HTML
 <li>
     <span>{{ experience.label }}</span>
-    </span>
-    <span>{{ experience.text }}</span>
     </span>
 </li>
 ```
