@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/stfsy/node-amy/compare/v1.5.0...v1.5.1) (2020-08-21)
+
+
+### Bug Fixes
+
+* add command does not add nodes ([dce6c04](https://github.com/stfsy/node-amy/commit/dce6c045e3e4b74b0b0860b05444a842e1cb4537))
+
+
+
 # [1.5.0](https://github.com/stfsy/node-amy/compare/v1.3.0...v1.5.0) (2020-08-21)
 
 
