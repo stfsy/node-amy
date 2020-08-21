@@ -44,7 +44,6 @@ describe('RuntimeCompiler', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context)
             }).then((contents) => {
-                console.log('Compiled this ' + contents)
                 expect(contents).to.contain('<header id="header"><h1>Hello Tony!</h1>')
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<div id="phones">')
@@ -64,7 +63,6 @@ describe('RuntimeCompiler', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('checkout.html', context)
             }).then((contents) => {
-                console.log('Billings', contents)
                 expect(contents).to.contain('<header id="header"><h1>Hello Tony!</h1></header>')
                 expect(contents).to.contain('<div id="billing"></div>')
                 expect(contents).to.contain('<footer id="footer"></footer>')
