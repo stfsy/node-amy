@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/stfsy/node-amy/compare/v1.5.1...v1.6.0) (2020-10-15)
+
+
+### Features
+
+* interpolate inline style script attrs too ([6e2c186](https://github.com/stfsy/node-amy/commit/6e2c186d95e3fc81144119b7ea6c9009a8e80eb4))
+
+
+
 ## [1.5.1](https://github.com/stfsy/node-amy/compare/v1.5.0...v1.5.1) (2020-08-21)
 
 
