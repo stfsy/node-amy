@@ -42,7 +42,7 @@ describe('RuntimeCompiler', () => {
     })
 
     describe('.compile', () => {
-        it.only('should compile home.html and return a html string', () => {
+        it('should compile home.html and return a html string', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context)
             }).then((contents) => {
