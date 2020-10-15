@@ -1,3 +1,7 @@
+# [1.7.0](https://github.com/stfsy/node-amy/compare/v1.6.0...v1.7.0) (2020-10-15)
+
+
+
 # [1.6.0](https://github.com/stfsy/node-amy/compare/v1.5.1...v1.6.0) (2020-10-15)
 
 
