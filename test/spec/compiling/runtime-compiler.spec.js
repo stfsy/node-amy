@@ -21,7 +21,9 @@ describe('RuntimeCompiler', () => {
     beforeEach(() => {
         compiler = new Compiler('test/fixtures-runtime-feature/templates')
         context = {
+                nonce: 'noncy',
                 user: {
+                    nonce: '4816',
                     name: {
                         first: 'Tony',
                         second: 'Lambada'
@@ -40,7 +42,7 @@ describe('RuntimeCompiler', () => {
     })
 
     describe('.compile', () => {
-        it('should compile home.html and return a html string', () => {
+        it.only('should compile home.html and return a html string', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context)
             }).then((contents) => {
@@ -48,6 +50,7 @@ describe('RuntimeCompiler', () => {
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<span id="snexu-summary">')
+                expect(contents).to.contain('<style nonce="4816">')
             })
         })
 
