@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/stfsy/node-amy/compare/v1.7.0...v1.8.0) (2020-10-16)
+
+
+### Features
+
+* update node html light ([8c8d74a](https://github.com/stfsy/node-amy/commit/8c8d74ab6e5b75ac9fa58b233b116ca5a1eb721a))
+
+
+
 # [1.7.0](https://github.com/stfsy/node-amy/compare/v1.6.0...v1.7.0) (2020-10-15)
 
 
