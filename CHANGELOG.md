@@ -1,3 +1,17 @@
+# [1.9.0](https://github.com/stfsy/node-amy/compare/v1.8.0...v1.9.0) (2020-11-10)
+
+
+### Bug Fixes
+
+* forEach does not respect array order ([05737cb](https://github.com/stfsy/node-amy/commit/05737cb1dcaf852c05a11e5b4015430604cc622e))
+
+
+### Features
+
+* update dependencies ([6dc2682](https://github.com/stfsy/node-amy/commit/6dc2682d3fb53e8b2b674b2e8f11856e8cd80b1a))
+
+
+
 # [1.8.0](https://github.com/stfsy/node-amy/compare/v1.7.0...v1.8.0) (2020-10-16)
 
 
