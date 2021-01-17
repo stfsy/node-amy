@@ -1,3 +1,14 @@
+# [1.10.0](https://github.com/stfsy/node-amy/compare/v1.9.0...v1.10.0) (2021-01-17)
+
+
+### Features
+
+* add if command ([43b1909](https://github.com/stfsy/node-amy/commit/43b1909ebdc08871ee2a07739251543d416a31cf))
+* allow conditionals to follow if command ([19fe151](https://github.com/stfsy/node-amy/commit/19fe1518d1bbb905ccdcebaaaf627be80a69ee6c))
+* check if conditional command is in command array ([5e5d4d8](https://github.com/stfsy/node-amy/commit/5e5d4d89ac90b66e41a2439230eb550af87bb07f))
+
+
+
 # [1.9.0](https://github.com/stfsy/node-amy/compare/v1.8.0...v1.9.0) (2020-11-10)
 
 
