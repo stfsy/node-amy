@@ -45,14 +45,14 @@
     "istanbul": "^0.4.4",
     "jsdoc": "^3.6.6",
     "minami": "^1.1.1",
-    "mocha": "^7.1.1",
+    "mocha": "^8.2.1",
     "watch": "^1.0.2"
   },
   "dependencies": {
     "clone-deep": "^4.0.1",
-    "commander": "^6.2.0",
+    "commander": "^7.0.0",
     "fs-promise": "^2.0.3",
-    "globby": "^11.0.1",
+    "globby": "^11.0.2",
     "node-html-light": "^1.4.0"
   }
 }
