@@ -63,13 +63,22 @@ describe('Compiler2', () => {
     })
 
     describe('._compile', () => {
-        it('should import footer.html1', (done) => {
-            compiler._compile([commentNode], context).then((compiledNode) => {
+        it('should import footer.html1 because importEnabled is true', () => {
+            context.importEnabled = true
+            return compiler._compile([commentNode], context).then((compiledNode) => {
                 const nodes = Nodes.of(compiledNode)
                 const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
                 expect(footer.length).to.equal(1)
                 expect(footer[0].name).to.equal('footer')
-            }).then(done, done)
+            })
+        })
+        it('should not import footer.html1 because importEnabled is false', () => {
+            context.importEnabled = false
+            return compiler._compile([commentNode], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const footer = nodes.find({ name: 'footer' }, [{ key: 'id', value: 'footer' }])
+                expect(footer.length).to.equal(0)
+            })
         })
         it('should import listing.html multiple times', (done) => {
             compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
@@ -304,11 +313,11 @@ describe('Compiler2', () => {
     })
     describe('.forEach', () => {
         let commentNode = null
-        let command =
-            beforeEach(() => {
-                commentNode = Node.fromString('<!-- text -->')
-                command = { arguments: () => 'phones' }
-            })
+        let command = null
+        beforeEach(() => {
+            commentNode = Node.fromString('<!-- text -->')
+            command = { arguments: () => 'phones' }
+        })
         it('should return an array of nodes with 2 elements', (done) => {
             compiler._forEach(idTextNode, commentNode, command, [], context).then((result) => {
                 expect(result).to.be.an('array')
