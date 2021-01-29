@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/stfsy/node-amy/compare/v1.10.0...v2.0.0) (2021-01-29)
+
+
+### Features
+
+* remove comment nodes on production ([a54d527](https://github.com/stfsy/node-amy/commit/a54d527f8818cff74afeeac1694dc24e87cdccd6))
+* update dependencies ([35f6e36](https://github.com/stfsy/node-amy/commit/35f6e36505bdbab24b3cad030b8af7b17d1736bd))
+
+
+
 # [1.10.0](https://github.com/stfsy/node-amy/compare/v1.9.0...v1.10.0) (2021-01-17)
 
 
