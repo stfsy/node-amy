@@ -386,4 +386,18 @@ describe('Compiler2', () => {
             expect(radioButtonInput[0].attributes.checked).to.be.undefined
         })
     })
+    describe('removeComments', () => {
+        it('toggles removal of all comment nodes', (done) => {
+            compiler = new Compiler('', true)
+
+            compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const commentNodes = nodes.find({
+                    type: Node.TYPE_COMMENT
+                })
+                // didn't catch all this time
+                expect(commentNodes.length).to.equal(2)
+            }).then(done, done)
+        })
+    })
 })
