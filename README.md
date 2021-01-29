@@ -9,14 +9,14 @@
 [![Github issues](https://img.shields.io/github/issues/stfsy/node-amy.svg)](https://github.com/stfsy/node-amy/issues)
 [![License](https://img.shields.io/npm/l/node-amy.svg)](https://github.com/stfsy/node-amy/blob/master/LICENSE)
 
-### What is it?
+## What is it?
 
 A HTML template framework **without** client-side dependencies. **amy** allows you to split up your web app in small components. **amy** will merge these components at runtime and replace variables. 
 
 ## Who is using it?
 [blauspecht.io](https://www.blauspecht.io) uses `node-html-light` to render their whole page server-side. [blauspecht.io](https://www.blauspecht.io) enables you to provide rich content to your followers, schedule tweets and threads and will add AI-powered features soon.
 
-### How can I use it?
+## How can I use it?
 In the example below you can see, that the file index.html contains various **import** commands. At runtime these commands will add
 * Meta Tags,
 * CSS,
