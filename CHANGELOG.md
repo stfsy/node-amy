@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/stfsy/node-amy/compare/v2.0.0...v2.0.1) (2021-01-29)
+
+
+### Bug Fixes
+
+* runtime compiler needs to pass remove comments ([2dbff78](https://github.com/stfsy/node-amy/commit/2dbff7820a80300afcbd7720701a866ad937c461))
+
+
+
 # [2.0.0](https://github.com/stfsy/node-amy/compare/v1.10.0...v2.0.0) (2021-01-29)
 
 
