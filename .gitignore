@@ -4,3 +4,4 @@ docs/
 npm-debug.log
 .tmp
 .vscode
+.nyc_output

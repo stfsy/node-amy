@@ -10,7 +10,7 @@
     "setup": "npm run release-patch",
     "test-watch": "watch \"npm run test\" lib test/spec",
     "test": "mocha test/spec/**/*.spec.js --check-leaks",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- test/spec/**/*.spec.js --check-leaks",
+    "coverage": "nyc npm run test",
     "docs": "jsdoc lib/ --destination docs --configure .jsdoc.json",
     "preversion": "npm run test",
     "version": "npm run changelog && git add -A CHANGELOG.md",
@@ -42,10 +42,10 @@
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "conventional-changelog-cli": "^2.1.1",
-    "istanbul": "^0.4.4",
     "jsdoc": "^3.6.6",
     "minami": "^1.1.1",
     "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
     "watch": "^1.0.2"
   },
   "dependencies": {
