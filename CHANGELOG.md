@@ -1,3 +1,19 @@
+# [2.1.0](https://github.com/stfsy/node-amy/compare/v2.0.1...v2.1.0) (2021-02-04)
+
+
+### Bug Fixes
+
+* include not executed if comments are removed ([0002e60](https://github.com/stfsy/node-amy/commit/0002e60a9b6624096c2926c307b346eb70ca88fe))
+* node 14 doesnt like dir access mode ([8cf7e8a](https://github.com/stfsy/node-amy/commit/8cf7e8a36da1e9d050df6222e1515087b9db9fe6))
+
+
+### Features
+
+* make fs promise a dev dependency only ([f38c497](https://github.com/stfsy/node-amy/commit/f38c497132f7dd2a95e2b7b74cf3eadcf7c09047))
+* update node-html-light to 2.2.0 ([2cc8177](https://github.com/stfsy/node-amy/commit/2cc81772d08f3b3dc03495981804c69e203300e1))
+
+
+
 ## [2.0.1](https://github.com/stfsy/node-amy/compare/v2.0.0...v2.0.1) (2021-01-29)
 
 
