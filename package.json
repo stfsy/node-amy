@@ -42,6 +42,7 @@
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "conventional-changelog-cli": "^2.1.1",
+    "fs-promise": "^2.0.3",
     "jsdoc": "^3.6.6",
     "minami": "^1.1.1",
     "mocha": "^8.2.1",
@@ -51,7 +52,6 @@
   "dependencies": {
     "clone-deep": "^4.0.1",
     "commander": "^7.0.0",
-    "fs-promise": "^2.0.3",
     "globby": "^11.0.2",
     "node-html-light": "^2.2.0"
   }
