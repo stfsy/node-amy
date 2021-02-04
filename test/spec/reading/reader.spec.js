@@ -13,6 +13,7 @@ describe('Reader', () => {
         'templates/comment.html',
         'templates/home.html',
         'templates/main/footer.html',
+        'templates/main/footerIncludeWrapper.html',
         'templates/main/header.html',
         'templates/shopping/android/snexu.html',
         'templates/shopping/droid.html',

@@ -304,10 +304,10 @@ describe('Compiler2', () => {
             compiler.compile('**/*.html', 'test/fixtures/templates', 'test/output', context).then(() => {
                 return fs.readdir(resolve('test', 'output', 'main'))
             }).then((contents) => {
-                const valids = ['footer.html', 'header.html']
+                const valids = ['footer.html', 'footerIncludeWrapper.html', 'header.html']
                 expect(contents.length).to.equal(valids.length)
                 expect(contents).to.eql(valids)
-                expect(contents.length).to.equal(2)
+                expect(contents.length).to.equal(3)
             }).then(done, done)
         })
     })
@@ -396,7 +396,19 @@ describe('Compiler2', () => {
                     type: Node.TYPE_COMMENT
                 })
                 // didn't catch all this time
-                expect(commentNodes.length).to.equal(2)
+                expect(commentNodes.length).to.equal(3)
+            }).then(done, done)
+        })
+        it('imports includes correctly', (done) => {
+            compiler = new Compiler('', true)
+
+            compiler._compile([homeHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const list = nodes.find('span', [{ key: 'id', value: 'copyright' }])
+
+                expect(list.length).to.equal(1)
+                expect(list[0].get().children[0].data).to.equal("© 2020");
+
             }).then(done, done)
         })
     })
