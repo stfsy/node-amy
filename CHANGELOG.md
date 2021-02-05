@@ -1,3 +1,12 @@
+# [2.2.0](https://github.com/stfsy/node-amy/compare/v2.1.0...v2.2.0) (2021-02-05)
+
+
+### Bug Fixes
+
+* if command does not execute following for each ([ecf6e68](https://github.com/stfsy/node-amy/commit/ecf6e680dac4861641c8dad6e40eaee245b058de))
+
+
+
 # [2.1.0](https://github.com/stfsy/node-amy/compare/v2.0.1...v2.1.0) (2021-02-04)
 
 
