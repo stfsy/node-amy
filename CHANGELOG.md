@@ -1,3 +1,12 @@
+# [2.3.0](https://github.com/stfsy/node-amy/compare/v2.2.0...v2.3.0) (2021-03-20)
+
+
+### Features
+
+* update dependencies ([37f13d7](https://github.com/stfsy/node-amy/commit/37f13d76c65e7da7844e8e513ddd1757a7f7ea62))
+
+
+
 # [2.2.0](https://github.com/stfsy/node-amy/compare/v2.1.0...v2.2.0) (2021-02-05)
 
 
