@@ -39,19 +39,19 @@
   "author": "Stefan Pfaffel",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.3.0",
+    "chai": "^4.3.4",
     "chai-spies": "^1.0.0",
     "conventional-changelog-cli": "^2.1.1",
     "fs-promise": "^2.0.3",
     "jsdoc": "^3.6.6",
     "minami": "^1.1.1",
-    "mocha": "^8.2.1",
+    "mocha": "^8.3.2",
     "nyc": "^15.1.0",
     "watch": "^1.0.2"
   },
   "dependencies": {
     "clone-deep": "^4.0.1",
-    "commander": "^7.0.0",
+    "commander": "^7.1.0",
     "globby": "^11.0.2",
     "node-html-light": "^2.2.0"
   }
