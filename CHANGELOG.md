@@ -1,3 +1,13 @@
+# [2.4.0](https://github.com/stfsy/node-amy/compare/v2.3.0...v2.4.0) (2021-03-24)
+
+
+### Features
+
+* allow caching of html files ([fcf0477](https://github.com/stfsy/node-amy/commit/fcf0477c4f2b9a2189ba242e6b579aa6818b12cb))
+* update dependencies ([60fb6b4](https://github.com/stfsy/node-amy/commit/60fb6b473b13e68eb179898c2e1eeb9105cd0e40))
+
+
+
 # [2.3.0](https://github.com/stfsy/node-amy/compare/v2.2.0...v2.3.0) (2021-03-20)
 
 
