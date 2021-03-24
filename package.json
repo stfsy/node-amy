@@ -6,6 +6,10 @@
   "bin": {
     "node-amy": "bin/cli"
   },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "scripts": {
     "setup": "npm run release-patch",
     "test-watch": "watch \"npm run test\" lib test/spec",
