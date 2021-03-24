@@ -42,6 +42,22 @@ describe('RuntimeCompiler', () => {
     })
 
     describe('.compile', () => {
+        it('caches the compiled html string', () => {
+            return compiler.initialize('**/*.html').then(() => {
+                return compiler.compile('home.html', context, true)
+            .then(() => {
+                context.user.name = 'Marc'
+                return compiler.compile('home.html', context, true)
+            })
+            }).then((contents) => {
+                expect(contents).to.contain('<header id="header"><h1>Hello Tony!</h1>')
+                expect(contents).to.contain('<div id="phones">')
+                expect(contents).to.contain('<div id="phones">')
+                expect(contents).to.contain('<span id="snexu-summary">')
+                expect(contents).to.contain('<style nonce="4816">')
+            })
+        })
+
         it('should compile home.html and return a html string', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context)
