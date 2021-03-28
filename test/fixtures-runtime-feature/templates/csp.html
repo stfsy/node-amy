@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+
+    <script nonce="{{ nonce.scriptNonce}}">
+        ((window) => {
+            const updateHeight = () => {
+                const vh = window.innerHeight * 0.01
+                document.documentElement.style.setProperty('--vh', `${vh}px`)
+            }
+            window.addEventListener('resize', updateHeight)
+            updateHeight()
+        })(window)
+    </script>
+
+    <script nonce="{{ nonce.scriptNonce}}">
+        ((window) => {
+            document.write('Hello World')
+        })(window)
+    </script>
+
+    <style>
+        body {
+            color: black
+        }
+    </style>
+
+    <style>
+        .wiggle {
+            -webkit-animation-name: wiggle;
+            -ms-animation-name: wiggle;
+            -ms-animation-duration: 1000ms;
+            -webkit-animation-duration: 1000ms;
+            -webkit-animation-iteration-count: 1;
+            -ms-animation-iteration-count: 1;
+            -webkit-animation-timing-function: ease-in-out;
+            -ms-animation-timing-function: ease-in-out;
+        }
+
+        @-webkit-keyframes wiggle {
+            0% {
+                -webkit-transform: rotate(5deg);
+            }
+
+            25% {
+                -webkit-transform: rotate(-5deg);
+            }
+
+            50% {
+                -webkit-transform: rotate(10deg);
+            }
+
+            75% {
+                -webkit-transform: rotate(-2.5deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(0deg);
+            }
+        }
+    </style>
+
+    <!-- @amy import main/header.html with user as user -->
+    <!-- @amy import shopping/phones.html -->
+    <!-- @amy import shopping/listing.html forEach phones as phone -->
+    <!-- @amy import main/footer.html -->
+</body>
+
+</html>
