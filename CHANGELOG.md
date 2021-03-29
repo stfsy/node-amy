@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/stfsy/node-amy/compare/v2.4.0...v2.5.0) (2021-03-29)
+
+
+### Features
+
+* add hasher ([24fc976](https://github.com/stfsy/node-amy/commit/24fc976f40a7023f604ef19c68c90e3a94264c5b))
+* add script style tag hasher component ([f45d4b2](https://github.com/stfsy/node-amy/commit/f45d4b2127e3e120d98f650665423bde99701bae))
+* expose script style tag hasher ([fda07d6](https://github.com/stfsy/node-amy/commit/fda07d69723230a9786e6fdf110a75ad0a2d32bf))
+* update dependencies ([c81c02f](https://github.com/stfsy/node-amy/commit/c81c02fa9a8e6ce62844c3e7597d94ff4df7aae2))
+
+
+
 # [2.4.0](https://github.com/stfsy/node-amy/compare/v2.3.0...v2.4.0) (2021-03-24)
 
 
