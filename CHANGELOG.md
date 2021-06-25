@@ -1,3 +1,17 @@
+# [2.6.0](https://github.com/stfsy/node-amy/compare/v2.5.0...v2.6.0) (2021-06-25)
+
+
+### Bug Fixes
+
+* nodes not appended if comment is root ([abb0944](https://github.com/stfsy/node-amy/commit/abb094486655573e21e57242def6a8396cc93835))
+
+
+### Features
+
+* update node-html-light ([dbd0be4](https://github.com/stfsy/node-amy/commit/dbd0be42d516123b560e6fa19ed0cf5d210169ba))
+
+
+
 # [2.5.0](https://github.com/stfsy/node-amy/compare/v2.4.0...v2.5.0) (2021-03-29)
 
 
