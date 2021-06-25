@@ -1,3 +1,7 @@
+# [2.8.0](https://github.com/stfsy/node-amy/compare/v2.7.0...v2.8.0) (2021-06-25)
+
+
+
 # [2.7.0](https://github.com/stfsy/node-amy/compare/v2.6.0...v2.7.0) (2021-06-25)
 
 
