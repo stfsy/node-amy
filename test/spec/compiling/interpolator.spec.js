@@ -35,6 +35,24 @@ describe('Interpolator', () => {
         })
     })
 
+    describe('.interpolatables', () => {
+        it('should return the static parts of the string in correct order', () => {
+            const tokenized = interpolator._tokenize('Hey yo, my name is {{ user.name }}')
+            expect(tokenized.statics.length).to.equal(1)
+            expect(tokenized.statics[0]).to.equal('Hey yo, my name is ')
+            expect(tokenized.interpolatables[0]).to.equal('user.name')
+        })
+        it('should return the interpolatable parts of the string trimme  in correct order', () => {
+            const tokenized = interpolator._tokenize('Hey {{ greeting}}, my name is {{user.name}}')
+            expect(tokenized.statics.length).to.equal(2)
+            expect(tokenized.statics[0]).to.equal('Hey ')
+            expect(tokenized.statics[1]).to.equal(', my name is ')
+            expect(tokenized.interpolatables.length).to.equal(2)
+            expect(tokenized.interpolatables[0]).to.equal('greeting')
+            expect(tokenized.interpolatables[1]).to.equal('user.name')
+        })
+    })
+
     describe('.tokenize', () => {
         it('should return the static parts of the string in correct order', () => {
             const tokenized = interpolator._tokenize('Hey {{ user.name }}!')
