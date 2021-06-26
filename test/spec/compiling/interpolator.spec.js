@@ -24,6 +24,17 @@ describe('Interpolator', () => {
         }
     })
 
+    describe('.canInterpolate', () => {
+        it('should return true if a string containts placeholders', () => {
+            const canInterpolate = interpolator.canInterpolate('Hello {{ abc }}!')
+            expect(canInterpolate).to.be.true
+        })
+        it('should return false if a string contains zero placeholders', () => {
+            const canInterpolate = interpolator.canInterpolate('Hello World!')
+            expect(canInterpolate).to.be.false
+        })
+    })
+
     describe('.tokenize', () => {
         it('should return the static parts of the string in correct order', () => {
             const tokenized = interpolator._tokenize('Hey {{ user.name }}!')
