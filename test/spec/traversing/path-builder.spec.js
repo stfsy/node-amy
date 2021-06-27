@@ -6,7 +6,7 @@ const PathBuilder = require(resolve('lib/traversing/path-builder'))
 
 const expect = require('chai').expect
 
-describe.only('PathBuilder', () => {
+describe('PathBuilder', () => {
 
     const node = Node.fromString('<div><p>{{ id }}</p><div><span name="{{ user.name.first }}"></span><ul></ul></div></div>')
 
