@@ -7,8 +7,10 @@ const Compiler = require(resolve('lib/compiling/runtime-compiler'))
 const ScriptStyleTagHasher = require(resolve('lib/hashing/script-style-tag-hasher'))
 const expect = require('chai').expect
 
-describe('Hasher', () => {
+describe('Hasher', async () => {
     const compiler = new Compiler('test/fixtures-runtime-feature/templates')
+    await compiler.initialize()
+
     let scriptStyleTagHasher = new ScriptStyleTagHasher(compiler)
 
     const context = {
