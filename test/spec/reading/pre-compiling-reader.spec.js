@@ -76,6 +76,57 @@ describe('PreCompilingReader', () => {
             Object.entries(result[0].text).forEach(entry => entry[1](node, { name: 'Mercedes', country: 'Germany' }))
             expect(node.get().children[0].children[0].children[0].children[0].data).to.equal('Hello Mercedes from Germany')
         })
+        it('creates a function for import command', () => {
+            const node = Node.fromString('<body><div><p><span></span><!-- @amy import abc.html --></p></div></body>')
+            const result = reader._precompile([node])
+            expect(result).to.have.length(1)
+            Object.entries(result[0].import).forEach((entry) => {
+                expect(typeof entry[1]).to.equal('function')
+            })
+        })
+        it('creates a function for forEach command', () => {
+            const node = Node.fromString('<body><div><p><span></span><!-- @amy import abc.html forEach 123--></p></div></body>')
+            const result = reader._precompile([node])
+            expect(result).to.have.length(1)
+            Object.entries(result[0].forEach).forEach((entry) => {
+                expect(typeof entry[1]).to.equal('function')
+            })
+        })
+        it('creates a function for include command', () => {
+            const node = Node.fromString('<body><div><p><span></span><!-- @amy include --></p></div></body>')
+            const result = reader._precompile([node])
+            expect(result).to.have.length(1)
+            Object.entries(result[0].include).forEach((entry) => {
+                expect(typeof entry[1]).to.equal('function')
+            })
+        })
+        it('creates a function for add command', () => {
+            const node = Node.fromString('<body><div><p><span></span><!-- @amy import abc and add def.html--></p></div></body>')
+            const result = reader._precompile([node])
+            expect(result).to.have.length(1)
+            Object.entries(result[0].include).forEach((entry) => {
+                expect(typeof entry[1]).to.equal('function')
+            })
+        })
+        it('creates a function for if command', () => {
+            const node = Node.fromString('<body><div><p><span></span><!-- @amy if iol import abc and add def.html--></p></div></body>')
+            const result = reader._precompile([node])
+            expect(result).to.have.length(1)
+            Object.entries(result[0].if).forEach((entry) => {
+                expect(typeof entry[1]).to.equal('function')
+            })
+        })
+        it('creates a function that receives a callback that is called with the comment node', (done) => {
+            const node = Node.fromString('<body><div><p><span></span><!-- @amy if iol import abc and add def.html--></p></div></body>')
+            const result = reader._precompile([node])
+            expect(result).to.have.length(1)
+            Object.entries(result[0].if).forEach((entry) => {
+                entry[1](node, {}, (node) => {
+                    expect(node.type).to.equal('comment')
+                    done()
+                })
+            })
+        })
     })
 
     describe('.matchFiles', () => {
