@@ -23,6 +23,8 @@ describe('RuntimeCompiler', () => {
         context = {
                 nonce: 'noncy',
                 user: {
+                    id: '1234',
+                    class: 'visible', 
                     nonce: '4816',
                     name: {
                         first: 'Tony',
@@ -37,11 +39,27 @@ describe('RuntimeCompiler', () => {
                         manufacturer: 'anotherManufacturer'
                     }
                 ],
+                class: 'hidden',
                 id: 4815162342
             }
     })
 
     describe('.compile', () => {
+        it('resolves multiple attributes on the first imported node', () => {
+            return compiler.initialize('**/*.html').then(() => {
+                return compiler.compile('checkout.html', context, true)
+            }).then((contents) => {
+                expect(contents).to.contain('<body id="4815162342" nonce="noncy"')
+            })
+        })
+        it('resolves multiple attributes on other nodes', () => {
+            return compiler.initialize('**/*.html').then(() => {
+                return compiler.compile('checkout.html', context, true)
+            }).then((contents) => {
+                expect(contents).to.contain('<header class="visible" _id="1234"')^
+                expect(contents).to.contain('style nonce="4816"')
+            })
+        })
         it('caches the compiled html string', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context, true)
@@ -50,7 +68,7 @@ describe('RuntimeCompiler', () => {
                 return compiler.compile('home.html', context, true)
             })
             }).then((contents) => {
-                expect(contents).to.contain('<header id="header"><h1>Hello Tony!</h1>')
+                expect(contents).to.contain('<h1>Hello Tony!</h1>')
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<span id="snexu-summary">')
@@ -62,7 +80,7 @@ describe('RuntimeCompiler', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('home.html', context)
             }).then((contents) => {
-                expect(contents).to.contain('<header id="header"><h1>Hello Tony!</h1>')
+                expect(contents).to.contain('<h1>Hello Tony!</h1>')
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<div id="phones">')
                 expect(contents).to.contain('<span id="snexu-summary">')
@@ -82,7 +100,7 @@ describe('RuntimeCompiler', () => {
             return compiler.initialize('**/*.html').then(() => {
                 return compiler.compile('checkout.html', context)
             }).then((contents) => {
-                expect(contents).to.contain('<header id="header"><h1>Hello Tony!</h1></header>')
+                expect(contents).to.contain('<h1>Hello Tony!</h1>')
                 expect(contents).to.contain('<div id="billing"></div>')
                 expect(contents).to.contain('<footer id="footer"></footer>')
             })
