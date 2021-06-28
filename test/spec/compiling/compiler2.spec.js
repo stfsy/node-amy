@@ -30,10 +30,11 @@ describe('Compiler2', () => {
 
     beforeEach(() => {
         compiler = new Compiler('')
-        radioButtonInput = [Node.fromString('<input type="radio" checked="{{ user.isFanboy }}"/>')]
+        radioButtonInput = [Node.fromString('<input type="radio" id="{{id}} class="{{class}}" checked="{{ user.isFanboy }}"/>')]
         firstNameTextNode = [Node.fromString('<div id="{{ id }}">{{ user.name.first }}</div>')]
         idTextNode = [Node.fromString('<div><p>{{ id }}<p><div><span name="{{ user.name.first }}"></span></div></div>')]
         context = {
+            class: 'hidden',
             user: {
                 name: {
                     first: 'Tony',
