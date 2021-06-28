@@ -42,7 +42,6 @@ describe('PathBuilder', () => {
     it('return a path allows traversing back to target node', () => {
         const list = node.find('ul')
         const path = pathBuilder.buildPathFromParentToNode(list[0].get())
-        console.log(path)
         const target = path.reduce((parent, index) => {
             return parent.children[index]
         }, node.get())
