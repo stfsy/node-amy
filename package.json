@@ -43,6 +43,7 @@
   "author": "Stefan Pfaffel",
   "license": "MIT",
   "devDependencies": {
+    "benchmark": "^2.1.4",
     "chai": "^4.3.4",
     "chai-spies": "^1.0.0",
     "conventional-changelog-cli": "^2.1.1",
