@@ -22,26 +22,27 @@ describe('PathBuilder', () => {
 
     it('returns an array for nested elements on level1', () => {
         const paragraph = node.find('p')
-        const path = pathBuilder.buildPathFromParentToNode(paragraph[0])
+        const path = pathBuilder.buildPathFromParentToNode(paragraph[0].get())
         expect(path).to.have.length(1)
         expect(path[0]).to.equal(0)
     })
 
     it('returns an array for nested elements on level 2', () => {
         const span = node.find('span')
-        const path = pathBuilder.buildPathFromParentToNode(span[0])
+        const path = pathBuilder.buildPathFromParentToNode(span[0].get())
         expect(path).to.deep.equal([1, 0])
     })
 
     it('returns an array with reversed indices', () => {
         const list = node.find('ul')
-        const path = pathBuilder.buildPathFromParentToNode(list[0])
+        const path = pathBuilder.buildPathFromParentToNode(list[0].get())
         expect(path).to.deep.equal([1, 1])
     })
 
     it('return a path allows traversing back to target node', () => {
         const list = node.find('ul')
-        const path = pathBuilder.buildPathFromParentToNode(list[0])
+        const path = pathBuilder.buildPathFromParentToNode(list[0].get())
+        console.log(path)
         const target = path.reduce((parent, index) => {
             return parent.children[index]
         }, node.get())
