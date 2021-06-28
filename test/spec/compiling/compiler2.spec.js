@@ -30,16 +30,18 @@ describe('Compiler2', () => {
 
     beforeEach(() => {
         compiler = new Compiler('')
-        radioButtonInput = [Node.fromString('<input type="radio" id="{{id}} class="{{class}}" checked="{{ user.isFanboy }}"/>')]
+        radioButtonInput = [Node.fromString('<input checked="{{checked}}" type="radio" id="{{id}} class="{{class}}" checked="{{ user.isFanboy }}"/>')]
         firstNameTextNode = [Node.fromString('<div id="{{ id }}">{{ user.name.first }}</div>')]
         idTextNode = [Node.fromString('<div><p>{{ id }}<p><div><span name="{{ user.name.first }}"></span></div></div>')]
         context = {
             class: 'hidden',
+            checked: 'false',
             user: {
                 name: {
                     first: 'Tony',
                     second: 'Lambada'
                 },
+                checked: 'false',
                 isFanboy: false
             },
             phones: [
@@ -156,6 +158,23 @@ describe('Compiler2', () => {
     })
 
     describe('._compile', () => {
+        it('should remove checked attribute when value is "false"', (done) => {
+            compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const header = nodes.find('header')[0]
+
+                expect(header.attributes.checked).to.be.undefined
+            }).then(done, done)
+        })
+        it('should remove checked attribute when value is "false"', (done) => {
+            context.user.checked = 'yes'
+            compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
+                const nodes = Nodes.of(compiledNode)
+                const header = nodes.find('header')[0]
+
+                expect(header.attributes.checked).to.equal('yes')
+            }).then(done, done)
+        })
         it('should import header.html', (done) => {
             compiler._compile([checkoutHtmlNode.body()], context).then((compiledNode) => {
                 const nodes = Nodes.of(compiledNode)
@@ -381,10 +400,6 @@ describe('Compiler2', () => {
 
             const interpolatedNode = idTextNode[0].find({ type: 'tag', name: 'span' })[0]
             expect(interpolatedNode.attributes.name).to.equal(context.user.name.first)
-        })
-        it('should remove the checked attribute if value is falsy', () => {
-            compiler._interpolate(radioButtonInput, context)
-            expect(radioButtonInput[0].attributes.checked).to.be.undefined
         })
     })
     describe('removeComments', () => {
