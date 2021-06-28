@@ -26,6 +26,20 @@ describe('PreCompilingReader', () => {
     })
 
     describe('_precompile', () => {
+        new Reader()._attributes_to_remove_if_value_false.forEach((attribute) => {
+            it('removes ' + attribute + ' if value is "false"', () => {
+                const node = Node.fromString(`<body ${attribute}="{{value}}"></body>`)
+                const result = reader._precompile([node])
+                Object.entries(result[0].attributes).forEach(entry => entry[1](node, { value: 'false' }))
+                expect(node.attributes[attribute]).to.be.undefined
+            })
+            it('interpolates ' + attribute + ' if value is not "false"', () => {
+                const node = Node.fromString(`<body ${attribute}="{{value}}"></body>`)
+                const result = reader._precompile([node])
+                Object.entries(result[0].attributes).forEach(entry => entry[1](node, { value: 'true' }))
+                expect(node.attributes[attribute]).to.equal('true')
+            })
+        })
         it('creates a function that interpolates text content', () => {
             const node = Node.fromString('<body class="Hello {{name}}!">{{ subscription }}</body>')
             const result = reader._precompile([node])
