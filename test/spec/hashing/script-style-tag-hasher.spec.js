@@ -2,8 +2,7 @@
 
 const resolve = require('path').resolve
 
-const Node = require('node-html-light').Node
-const Compiler = require(resolve('lib/compiling/runtime-compiler'))
+const Compiler = require(resolve('lib/amy')).Compiler
 const ScriptStyleTagHasher = require(resolve('lib/hashing/script-style-tag-hasher'))
 const expect = require('chai').expect
 
