@@ -1,7 +1,7 @@
 'use strict'
 
 const resolve = require('path').resolve
-const RuntimeCompiler = require(resolve('lib/compiling/runtime-compiler'))
+const RuntimeCompiler = require(resolve('lib/compiling/compiler3'))
 const expect = require('chai').expect
 
 describe('RuntimeCompiler', () => {
