@@ -1,3 +1,29 @@
+# [3.0.0](https://github.com/stfsy/node-amy/compare/v2.8.0...v3.0.0) (2021-07-04)
+
+
+### Bug Fixes
+
+* attributes of root nodes are not interpolated ([b494ffc](https://github.com/stfsy/node-amy/commit/b494ffc48124123f76524c84704113337ad6f51c))
+* error trying to retrieve cached file ([97f0667](https://github.com/stfsy/node-amy/commit/97f066705e9ad624f0b2d56070bd080274628575))
+* not all attributes are interpolated ([7048525](https://github.com/stfsy/node-amy/commit/70485253f54d1c465054c1c430231b4ea63a82f9))
+
+
+### Features
+
+* add callbacks for all commands ([5ead935](https://github.com/stfsy/node-amy/commit/5ead935f7a664e9167e7b22e548014c7378f2ed3))
+* add canInterpolate method ([9d35ea5](https://github.com/stfsy/node-amy/commit/9d35ea5e27bd8713f8f586e427d917e862f410be))
+* add interpolate with tokens function ([e0fd804](https://github.com/stfsy/node-amy/commit/e0fd8048117f4145239ee54adf005274d54decdc))
+* add new compiler that uses precompilation ([a09e440](https://github.com/stfsy/node-amy/commit/a09e4403a997d65ea7896ef7666e19374a45c38d))
+* add path builder ([5735e6c](https://github.com/stfsy/node-amy/commit/5735e6c11d59b5b06e06c8fbe451a53175dc42a7))
+* add precompiling reader class ([5012672](https://github.com/stfsy/node-amy/commit/5012672948f95cb819d58d8d76344b942144d53a))
+* add public method to get interpolatables ([824eff3](https://github.com/stfsy/node-amy/commit/824eff3618d6053c2d8dfa3e7a5674bb1e809f83))
+* remove certain attributes if value "false" ([7cdd0f2](https://github.com/stfsy/node-amy/commit/7cdd0f2650ea3c8619411e26199d4a73bb195a3f))
+* update node-html-light ([cc589cf](https://github.com/stfsy/node-amy/commit/cc589cf3417db97eb6a6baca1197f2d363e62647))
+* use and export new compiler ([31b8b3d](https://github.com/stfsy/node-amy/commit/31b8b3d6e440e3ec8422306c8200752e21f14c80))
+* use precompiling reader for interpolation ([ef32968](https://github.com/stfsy/node-amy/commit/ef329687f103711201a0512b81f478c27f02a047))
+
+
+
 # [2.8.0](https://github.com/stfsy/node-amy/compare/v2.7.0...v2.8.0) (2021-06-25)
 
 
