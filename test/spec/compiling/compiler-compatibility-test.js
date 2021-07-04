@@ -58,14 +58,14 @@ module.exports = (compilerProvider) => {
             })
         })
         it('caches files if cache flag is set', () => {
-            return compiler.compile(homeHtmlPath, context).then((html) => {
+            return compiler.compile(homeHtmlPath, context,true).then((html) => {
                 expect(html).to.contain('Hello Tony!')
             }).then(() => {
                 context.user.name.first = 'Ben'
                 return compiler.compile(homeHtmlPath, context, true)
             }).then((html) => {
-                expect(html).to.not.contain('Hello Tony!')
-                expect(html).to.contain('Hello Ben!')
+                expect(html).to.contain('Hello Tony!')
+                expect(html).to.not.contain('Hello Ben!')
             })
         })
     })
