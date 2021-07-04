@@ -5,7 +5,7 @@
 const Amy = require('../lib/amy')
 const commander = require('commander')
 const version = require('../package.json').version
-const fs = require('fs-promise')
+const fs = require('fs')
 
 commander
     .version(version)
@@ -18,5 +18,5 @@ commander
 const inputPath = commander.inputPath
 const pattern = commander.pattern
 const outputPath = commander.outputPath
-const context = fs.readJsonSync(commander.context)
+const context = JSON.parse(fs.readFileSync(commander.context, 'utf-8'))
 return Amy.compileTemplates(pattern, inputPath, outputPath, context).catch(error => console.error(error))
