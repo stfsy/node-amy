@@ -1,3 +1,12 @@
+# [3.1.0](https://github.com/stfsy/node-amy/compare/v3.0.0...v3.1.0) (2021-07-05)
+
+
+### Features
+
+* update node-html-light ([2ff10ed](https://github.com/stfsy/node-amy/commit/2ff10ed12c47301ca2040eb36be83b32d3f4e2a7))
+
+
+
 # [3.0.0](https://github.com/stfsy/node-amy/compare/v2.8.0...v3.0.0) (2021-07-04)
 
 
