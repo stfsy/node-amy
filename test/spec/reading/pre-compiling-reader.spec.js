@@ -5,6 +5,9 @@ const Reader = require(resolve('lib/reading/pre-compiling-reader'))
 const Node = require('node-html-light').Node
 const expect = require('chai').expect
 
+const fs = require('fs')
+const copyrightContent = fs.readFileSync('test/fixtures/templates/copyright.html')
+
 describe('PreCompilingReader', () => {
 
     let reader = null
@@ -24,7 +27,36 @@ describe('PreCompilingReader', () => {
         'templates/shopping/phones.html']
 
     beforeEach(() => {
-        reader = new Reader()
+        reader = new Reader('test/fixtures/templates', true)
+        return reader.initialize()
+    })
+
+    after(() => {
+        fs.writeFileSync('test/fixtures/templates/copyright.html', copyrightContent, 'utf-8')
+    })
+
+    describe('readNodes', () => {
+        it('reads nodes from disk if not cached', () => {
+            return reader.readNodes('copyright.html').then(html => {
+                expect(html[0].toHtml()).to.include('id="copyright"')
+                expect(html[2].toHtml()).to.include('id="who"')
+            })
+        })
+        it('reads nodes from cache', () => {
+            return reader.readNodes('copyright.html').then(html => {
+                expect(html[0].toHtml()).to.include('id="copyright"')
+                expect(html[2].toHtml()).to.include('id="who"')
+
+                fs.writeFileSync('test/fixtures/templates/copyright.html', 'hello', 'utf-8')
+            }).then(() => {
+                return reader.readNodes('copyright.html').then(html => {
+                    expect(html[0].toHtml()).to.include('id="copyright"')
+                    expect(html[2].toHtml()).to.include('id="who"')
+                })
+            })
+        })
+    })
+
     })
 
     describe('_precompile', () => {
