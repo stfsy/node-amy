@@ -9,7 +9,7 @@ describe('ComponentRegistryReader', () => {
     let reader
 
     beforeEach(() => {
-        reader = new Reader('test/fixtures/components')
+        reader = new Reader('test/fixtures/components', { componentNamePattern: 'blauspecht' })
     })
 
     describe('.initializeRegistry', () => {
@@ -22,7 +22,7 @@ describe('ComponentRegistryReader', () => {
 
         it('creates a component instance for plain html files', () => {
             return reader.initializeRegistry().then(() => {
-                const htmlComponent = reader._registry['html-component']
+                const htmlComponent = reader._registry['app-html-component']
                 expect(htmlComponent.template()).to.include('Document')
                 expect(Array.isArray(htmlComponent.props)).to.be.true
                 expect(htmlComponent.props).to.have.length(0)
@@ -33,13 +33,13 @@ describe('ComponentRegistryReader', () => {
     describe('.hasComponent', () => {
         it('returns true if html component is known', () => {
             return reader.initializeRegistry().then(() => {
-                const hasHtmlComponent = reader.hasComponent('html-component')
+                const hasHtmlComponent = reader.hasComponent('app-html-component')
                 expect(hasHtmlComponent).to.be.true
             })
         })
         it('returns true if js component is known', () => {
             return reader.initializeRegistry().then(() => {
-                const hasTestComponent = reader.hasComponent('test-component')
+                const hasTestComponent = reader.hasComponent('app-test-component')
                 expect(hasTestComponent).to.be.true
             })
         })
@@ -54,14 +54,14 @@ describe('ComponentRegistryReader', () => {
     describe('.getComponent', () => {
         it('returns component if html component is known', () => {
             return reader.initializeRegistry().then(() => {
-                const component = reader.getComponent('html-component')
+                const component = reader.getComponent('app-html-component')
                 expect(component).to.not.be.undefined
                 expect(component).to.not.be.null
             })
         })
         it('returns true if js component is known', () => {
             return reader.initializeRegistry().then(() => {
-                const component = reader.getComponent('test-component')
+                const component = reader.getComponent('app-test-component')
                 expect(component).to.not.be.undefined
                 expect(component).to.not.be.null
             })
