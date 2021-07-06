@@ -7,7 +7,9 @@ const expect = require('chai').expect
 describe('Reader', () => {
 
     let reader = null
-    const htmlFiles = ['templates/billing/billing.html',
+    const htmlFiles = [
+        'components/html-component.html',
+        'templates/billing/billing.html',
         'templates/checkout.html',
         'templates/copyright.html',
         'templates/comment.html',
