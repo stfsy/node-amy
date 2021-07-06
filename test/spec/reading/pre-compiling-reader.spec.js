@@ -57,6 +57,26 @@ describe('PreCompilingReader', () => {
         })
     })
 
+    describe('_resolveComponents', () => {
+        it('injects components into html', () => {
+            const html = '<div><snexu/></div>'
+            const node = [Node.fromString(html)]
+            const htmlWithComponents = reader._resolveComponents(node)
+            expect(htmlWithComponents).to.include('snexu-summary')
+        })
+        it('replaces root element with component template', () => {
+            const html = '<div></div><snexu/>'
+            const node = Node.fromString(html)
+            const htmlWithComponents = reader._resolveComponents(node)
+            expect(htmlWithComponents).to.include('snexu-summary')
+        })
+        it('replaces multiple root elements with component template', () => {
+            const html = '<div></div><droid></droid><snexu></snexu>'
+            const node = Node.fromString(html)
+            const htmlWithComponents = reader._resolveComponents(node)
+            expect(htmlWithComponents).to.include('snexu-summary')
+            expect(htmlWithComponents).to.include('id="droid"')
+        })
     })
 
     describe('_precompile', () => {
