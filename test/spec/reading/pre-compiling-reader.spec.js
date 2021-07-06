@@ -59,23 +59,45 @@ describe('PreCompilingReader', () => {
 
     describe('_resolveComponents', () => {
         it('injects components into html', () => {
-            const html = '<div><snexu/></div>'
+            const html = '<div><app-snexu/></div>'
             const node = [Node.fromString(html)]
             const htmlWithComponents = reader._resolveComponents(node)
             expect(htmlWithComponents).to.include('snexu-summary')
         })
         it('replaces root element with component template', () => {
-            const html = '<div></div><snexu/>'
+            const html = '<div></div><app-snexu/>'
             const node = Node.fromString(html)
             const htmlWithComponents = reader._resolveComponents(node)
             expect(htmlWithComponents).to.include('snexu-summary')
         })
-        it('replaces multiple root elements with component template', () => {
-            const html = '<div></div><droid></droid><snexu></snexu>'
+        it('adds new root element with component template consists of more than one', () => {
+            const html = '<div></div><app-phones/><span></span>'
             const node = Node.fromString(html)
             const htmlWithComponents = reader._resolveComponents(node)
+            console.log(htmlWithComponents)
+            expect(htmlWithComponents).to.include('id="phones')
+            expect(htmlWithComponents).to.include('id="footer"')
+            expect(htmlWithComponents.indexOf('phones')).to.be.lessThan(htmlWithComponents.indexOf('footer'))
+            expect(htmlWithComponents.indexOf('footer')).to.be.lessThan(htmlWithComponents.indexOf('span'))
+        })
+        it('adds new root elements for each component template that consists of more than one', () => {
+            const html = '<div></div><app-phones/><app-snexu/><span></span>'
+            const node = Node.fromString(html)
+            const htmlWithComponents = reader._resolveComponents(node)
+            expect(htmlWithComponents).to.include('id="phones')
+            expect(htmlWithComponents).to.include('id="footer"')
             expect(htmlWithComponents).to.include('snexu-summary')
-            expect(htmlWithComponents).to.include('id="droid"')
+            expect(htmlWithComponents.indexOf('phones')).to.be.lessThan(htmlWithComponents.indexOf('footer'))
+            expect(htmlWithComponents.indexOf('footer')).to.be.lessThan(htmlWithComponents.indexOf('snexu-summary'))
+            expect(htmlWithComponents.indexOf('snexu-summmary')).to.be.lessThan(htmlWithComponents.indexOf('span'))
+        })
+        it('adds new elements if component template has more than one root', () => {
+            const html = '<div><app-phones/><app-snexu/></div>'
+            const node = [Node.fromString(html)]
+            const htmlWithComponents = reader._resolveComponents(node)
+            expect(htmlWithComponents).to.include('snexu-summary')
+            expect(htmlWithComponents).to.include('id="phones"')
+            expect(htmlWithComponents).to.include('id="footer"')
         })
     })
 
