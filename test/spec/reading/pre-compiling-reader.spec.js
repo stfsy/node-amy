@@ -27,7 +27,7 @@ describe('PreCompilingReader', () => {
         'templates/shopping/phones.html']
 
     beforeEach(() => {
-        reader = new Reader('test/fixtures/templates', true)
+        reader = new Reader('test/fixtures/templates', { registry: { enabled: true } })
         return reader.initialize()
     })
 
