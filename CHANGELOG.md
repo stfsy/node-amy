@@ -1,3 +1,29 @@
+# [3.2.0](https://github.com/stfsy/node-amy/compare/v3.1.0...v3.2.0) (2021-07-07)
+
+
+### Bug Fixes
+
+* component with multiple root els not rendered correctly ([88c43a6](https://github.com/stfsy/node-amy/commit/88c43a61553f280fe11821314e4fc46296f14e90))
+* no fallback if registry disabled ([e09ae9a](https://github.com/stfsy/node-amy/commit/e09ae9a714b532a6eab6481837a478dc9968d28f))
+
+
+### Features
+
+* add component registry reader ([e945a9c](https://github.com/stfsy/node-amy/commit/e945a9cc321b9f0f906a034c557f8d0cce786719))
+* add options object and initliaze reader ([1267041](https://github.com/stfsy/node-amy/commit/126704125a0dce1516f32d204c9bc626b924cb82))
+* add prefix to application components ([d5f7d2c](https://github.com/stfsy/node-amy/commit/d5f7d2c8aedddd0405e96834c9df7115608b619d))
+* inject template elements into components slots ([cd2c0be](https://github.com/stfsy/node-amy/commit/cd2c0be384ca90b3979c5e4990e76f30b8c48b1e))
+* update html light ([1032acf](https://github.com/stfsy/node-amy/commit/1032acf47e59549aa4bb190331783b7caf0d9572))
+* update node-html-light ([40047a1](https://github.com/stfsy/node-amy/commit/40047a1b1fe86cfc66789bb272af292110cd494c))
+* use component registry to resolve components ([7c49bf2](https://github.com/stfsy/node-amy/commit/7c49bf27a8674b65e577fd439e5ebd7ddb517cb4))
+
+
+### Performance Improvements
+
+* resolve path only if content not already cached ([6e39cfb](https://github.com/stfsy/node-amy/commit/6e39cfbad7303057eb9cd3486f32769f5b9ec222))
+
+
+
 # [3.1.0](https://github.com/stfsy/node-amy/compare/v3.0.0...v3.1.0) (2021-07-05)
 
 
