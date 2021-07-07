@@ -8,7 +8,7 @@ const expect = require('chai').expect
 const fs = require('fs')
 const copyrightContent = fs.readFileSync('test/fixtures/templates/copyright.html')
 
-describe('PreCompilingReader', () => {
+describe.only('PreCompilingReader', () => {
 
     let reader = null
     const htmlFiles = [
@@ -28,7 +28,7 @@ describe('PreCompilingReader', () => {
         'templates/shopping/phones.html']
 
     beforeEach(() => {
-        reader = new Reader('test/fixtures/templates', { registry: { enabled: true } })
+        reader = new Reader('test/fixtures', { registry: { enabled: true, componentFilePattern: '**/*{component.js,html}' } })
         return reader.initialize()
     })
 
@@ -38,31 +38,31 @@ describe('PreCompilingReader', () => {
 
     describe('readNodes', () => {
         it('reads nodes from disk if not cached', () => {
-            return reader.readNodes('copyright.html').then(html => {
+            return reader.readNodes('templates/copyright.html').then(html => {
                 expect(html[0].toHtml()).to.include('id="copyright"')
                 expect(html[2].toHtml()).to.include('id="who"')
             })
         })
         it('reads nodes from cache', () => {
-            return reader.readNodes('copyright.html').then(html => {
+            return reader.readNodes('templates/copyright.html').then(html => {
                 expect(html[0].toHtml()).to.include('id="copyright"')
                 expect(html[2].toHtml()).to.include('id="who"')
 
                 fs.writeFileSync('test/fixtures/templates/copyright.html', 'hello', 'utf-8')
             }).then(() => {
-                return reader.readNodes('copyright.html').then(html => {
+                return reader.readNodes('templates/copyright.html').then(html => {
                     expect(html[0].toHtml()).to.include('id="copyright"')
                     expect(html[2].toHtml()).to.include('id="who"')
                 })
             })
         })
         it('replaces component tags with component templates', () => {
-            return reader.readNodes('main/footer.html').then(html => {
+            return reader.readNodes('templates/main/footer.html').then(html => {
                 expect(html[0].toHtml()).to.include('id="snexu-summary"')
             })
         })
         it('replaces component slots with template elements children', () => {
-            return reader.readNodes('billing/billing.html').then(html => {
+            return reader.readNodes('templates/billing/billing.html').then(html => {
                 expect(html[0].toHtml()).to.include('id="apple"')
             })
         })
@@ -109,6 +109,27 @@ describe('PreCompilingReader', () => {
             expect(htmlWithComponents).to.include('snexu-summary')
             expect(htmlWithComponents).to.include('id="phones"')
             expect(htmlWithComponents).to.include('id="footer"')
+        })
+        it('throws if nested component has no template property', () => {
+            const html = '<div><app-test-component-template-is-a-property.component/></div>'
+            const node = [Node.fromString(html)]
+            expect(() => {
+                reader._resolveComponents(node)
+            }).to.throw(/.* has no template .*/)
+        })
+        it('throws if nested component has no render property', () => {
+            const html = '<div><app-test-component-no-render-function.component/></div>'
+            const node = [Node.fromString(html)]
+            expect(() => {
+                reader._resolveComponents(node)
+            }).to.throw(/.* has no render .*/)
+        })
+        it('throws if render function does not return nodes', () => {
+            const html = '<div><app-test-component-render-returns-no-nodes.component/></div>'
+            const node = [Node.fromString(html)]
+            expect(() => {
+                reader._resolveComponents(node)
+            }).to.throw(/No nodes for precompilation .*/)
         })
     })
 
