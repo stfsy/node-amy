@@ -10,6 +10,7 @@ describe('Reader', () => {
     const htmlFiles = [
         'components/html-component.html',
         'templates/billing/billing.html',
+        'templates/billing/ios.html',
         'templates/checkout.html',
         'templates/copyright.html',
         'templates/comment.html',

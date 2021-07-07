@@ -321,7 +321,7 @@ module.exports = (compilerProvider) => {
     describe('.initialize', () => {
         it('finds templates', () => {
             return compiler.initialize('test/fixtures/templates').then(() => {
-                expect(Object.keys(compiler._reader._precompileResults)).to.have.length(12)
+                expect(Object.keys(compiler._reader._precompileResults)).to.have.length(13)
             })
         })
         it('precompiles templates and stores paths to commands', () => {
