@@ -14,6 +14,7 @@ describe('PreCompilingReader', () => {
     const htmlFiles = [
         'components/html-component.html',
         'templates/billing/billing.html',
+        'templates/billing/ios.html',
         'templates/checkout.html',
         'templates/copyright.html',
         'templates/comment.html',
@@ -53,6 +54,16 @@ describe('PreCompilingReader', () => {
                     expect(html[0].toHtml()).to.include('id="copyright"')
                     expect(html[2].toHtml()).to.include('id="who"')
                 })
+            })
+        })
+        it('replaces component tags with component templates', () => {
+            return reader.readNodes('main/footer.html').then(html => {
+                expect(html[0].toHtml()).to.include('id="snexu-summary"')
+            })
+        })
+        it('replaces component slots with template elements children', () => {
+            return reader.readNodes('billing/billing.html').then(html => {
+                expect(html[0].toHtml()).to.include('id="apple"')
             })
         })
     })
@@ -98,6 +109,82 @@ describe('PreCompilingReader', () => {
             expect(htmlWithComponents).to.include('snexu-summary')
             expect(htmlWithComponents).to.include('id="phones"')
             expect(htmlWithComponents).to.include('id="footer"')
+        })
+    })
+
+    describe('_resolveComponentsTemplatesAndSlots', () => {
+        let componentWithSlot
+        let componentWithNamedSlot
+        let componentWithNamedSlotAndUnnamedSlot
+        let componentWithMultipleRootsAndSlots
+        let invalidComponentSlotsWithSameName
+        let template
+        let templateWithMultipleElementsOneNamedslot
+        let templateWithMultipleElements
+
+        beforeEach(() => {
+            componentWithSlot = [Node.fromString('<div><slot/></div>')]
+            componentWithNamedSlot = [Node.fromString('<div><slot name="hello"/></div>')]
+            componentWithNamedSlotAndUnnamedSlot = [Node.fromString('<div><div id="named"><slot name="hello"/></div><div id="unnamed"><slot/></div></div>')]
+            componentWithMultipleRootsAndSlots = Node.fromString('<div id="first"><slot name="hello"></slot></div><div id="second"><slot/></div>')
+            invalidComponentSlotsWithSameName = [Node.fromString('<div><slot name="hello"/><slot name="hello"></div>')]
+            template = Node.fromString('<div><template><span>Hello World!</span></template></div>')
+            templateWithMultipleElementsOneNamedslot = Node.fromString('<div><template><p><span>Hello World!</span></p></template><template slot="hello"><p><span>It\'s a good day!</span></p></template></div>')
+            templateWithMultipleElements = Node.fromString('<div><template><p><span>Hello World!</span></p><p><span>It\'s a good day!</span></p></template></div>')
+        })
+
+        it('replaces default slot with template content', () => {
+            const component = reader._resolveComponentsTemplatesAndSlots(componentWithSlot, template)
+            const span = component[0].find('span')[0]
+            const text = span.get().children[0].data
+            expect(text).to.equal('Hello World!')
+        })
+        it('adds all templates children', () => {
+            const component = reader._resolveComponentsTemplatesAndSlots(componentWithSlot, templateWithMultipleElements)
+            const firstSpan = component[0].find('span')[0]
+            const firstText = firstSpan.get().children[0].data
+            const secondSpan = component[0].find('span')[1]
+            const secondText = secondSpan.get().children[0].data
+            expect(firstText).to.equal('Hello World!')
+            expect(secondText).to.equal('It\'s a good day!')
+        })
+        it('removes template tag and add only its child elements', () => {
+            const component = reader._resolveComponentsTemplatesAndSlots(componentWithSlot, template)
+            const templateNode = component[0].find('template')
+            expect(templateNode).to.have.length(0)
+        })
+        it('add templates with slot name to respective slot', () => {
+            const component = reader._resolveComponentsTemplatesAndSlots(componentWithNamedSlotAndUnnamedSlot, templateWithMultipleElementsOneNamedslot)
+            const namedDiv = component[0].find('div', [{ key: 'id', value: 'named' }])[0]
+            const unnamedDiv = component[0].find('div', [{ key: 'id', value: 'unnamed' }])[0]
+            const goodDay = namedDiv.find('span')[0].children[0].get().data
+            const hello = unnamedDiv.find('span')[0].children[0].get().data
+            expect(goodDay).to.equal('It\'s a good day!')
+            expect(hello).to.equal('Hello World!')
+        })
+        it('add templates with slot name to respective slot in correct root elements', () => {
+            const component = reader._resolveComponentsTemplatesAndSlots(componentWithMultipleRootsAndSlots, templateWithMultipleElementsOneNamedslot)
+            const firstDiv = component[0].find('div', [{ key: 'id', value: 'first' }])[0]
+            const secondDiv = component[1].find('div', [{ key: 'id', value: 'second' }])[0]
+            const goodDay = firstDiv.find('span')[0].children[0].get().data
+            const hello = secondDiv.find('span')[0].children[0].get().data
+            expect(goodDay).to.equal('It\'s a good day!')
+            expect(hello).to.equal('Hello World!')
+        })
+        it('throws an error if there\'s unequel number of slots and templates', () => {
+            expect(() => {
+                reader._resolveComponentsTemplatesAndSlots(componentWithNamedSlot, template)
+            }).to.throw(/Could not find .*/)
+        })
+        it('throws an error if component has named slots and template doesnt', () => {
+            expect(() => {
+                reader._resolveComponentsTemplatesAndSlots(componentWithNamedSlotAndUnnamedSlot, template)
+            }).to.throw(/Uneven number of templates .*/)
+        })
+        it('throws and error if multiple slots have same name', () => {
+            expect(() => {
+                reader._resolveComponentsTemplatesAndSlots(invalidComponentSlotsWithSameName, templateWithMultipleElementsOneNamedslot)
+            }).to.throw(/There is more than one .*/)
         })
     })
 
