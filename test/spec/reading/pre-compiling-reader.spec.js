@@ -78,6 +78,17 @@ describe.only('PreCompilingReader', () => {
                 expect(appleId).to.be.lessThan(afterTemplateId)
             })
         })
+        it('replaces component slots of templates with multiple root nodes in place', () => {
+            return reader.readNodes('templates/main/footer.html').then(html => {
+                const htmlString = html[0].toHtml()
+                let summaryId = htmlString.indexOf('id="snexu-summary"')
+                let yearId = htmlString.indexOf('id="year')
+
+                expect(summaryId).to.not.equal(-1)
+                expect(yearId).to.not.equal(-1)
+                expect(summaryId).to.be.lessThan(yearId)
+            })
+        })
         it('removes the slot element', () => {
             return reader.readNodes('templates/billing/billing.html').then(html => {
                 const htmlString = html[0].toHtml()
