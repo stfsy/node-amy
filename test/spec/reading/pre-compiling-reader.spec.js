@@ -64,6 +64,24 @@ describe.only('PreCompilingReader', () => {
         it('replaces component slots with template elements children', () => {
             return reader.readNodes('templates/billing/billing.html').then(html => {
                 expect(html[0].toHtml()).to.include('id="apple"')
+                expect(html[0].toHtml()).not.to.include('<template>')
+            })
+        })
+        it('replaces component slots with template elements children in place', () => {
+            return reader.readNodes('templates/billing/billing.html').then(html => {
+                const htmlString = html[0].toHtml()
+                let appleId = htmlString.indexOf('id="apple"')
+                let afterTemplateId = htmlString.indexOf('id="after-template')
+
+                expect(appleId).to.not.equal(-1)
+                expect(afterTemplateId).to.not.equal(-1)
+                expect(appleId).to.be.lessThan(afterTemplateId)
+            })
+        })
+        it('removes the slot element', () => {
+            return reader.readNodes('templates/billing/billing.html').then(html => {
+                const htmlString = html[0].toHtml()
+                expect(htmlString.indexOf('slot')).to.equal(-1)
             })
         })
     })
@@ -85,7 +103,6 @@ describe.only('PreCompilingReader', () => {
             const html = '<div></div><app-phones/><span></span>'
             const node = Node.fromString(html)
             const htmlWithComponents = reader._resolveComponents(node)
-            console.log(htmlWithComponents)
             expect(htmlWithComponents).to.include('id="phones')
             expect(htmlWithComponents).to.include('id="footer"')
             expect(htmlWithComponents.indexOf('phones')).to.be.lessThan(htmlWithComponents.indexOf('footer'))
