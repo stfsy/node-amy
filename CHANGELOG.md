@@ -1,3 +1,12 @@
+## [3.4.1](https://github.com/stfsy/node-amy/compare/v3.4.0...v3.4.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* components with n+1 root nodes inserted in wrong order ([33e0987](https://github.com/stfsy/node-amy/commit/33e09877631ee8084a0c389754e6b369182034e0))
+
+
+
 # [3.4.0](https://github.com/stfsy/node-amy/compare/v3.3.0...v3.4.0) (2021-08-03)
 
 
