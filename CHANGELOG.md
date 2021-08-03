@@ -1,3 +1,17 @@
+# [3.4.0](https://github.com/stfsy/node-amy/compare/v3.3.0...v3.4.0) (2021-08-03)
+
+
+### Bug Fixes
+
+* component template added in wrong order ([ab7c886](https://github.com/stfsy/node-amy/commit/ab7c88648d71e1682199953970024b7c8ae43471))
+
+
+### Features
+
+* update node html light ([81994a7](https://github.com/stfsy/node-amy/commit/81994a7a68c242ecf19734bc262fcc3b2de2350c))
+
+
+
 # [3.3.0](https://github.com/stfsy/node-amy/compare/v3.2.0...v3.3.0) (2021-07-07)
 
 
