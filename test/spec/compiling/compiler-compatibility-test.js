@@ -333,7 +333,6 @@ module.exports = (compilerProvider) => {
         it('precompiles templates and stores paths interpolatables', () => {
             return compiler.initialize('test/fixtures/templates').then(() => {
                 const precompileResults = compiler._reader._precompileResults
-                console.log(precompileResults['test/fixtures/templates/home.html'])
                 expect(Object.keys(precompileResults['test/fixtures/templates/home.html'][2].attributes)).to.have.length(2)
             })
         })
