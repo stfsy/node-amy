@@ -3,6 +3,7 @@
 const resolve = require('path').resolve
 const Reader = require(resolve('lib/reading/pre-compiling-reader'))
 const Node = require('node-html-light').Node
+const Nodes = require('node-html-light').Nodes
 const expect = require('chai').expect
 
 const fs = require('fs')
@@ -76,6 +77,12 @@ describe.only('PreCompilingReader', () => {
                 expect(appleId).to.not.equal(-1)
                 expect(afterTemplateId).to.not.equal(-1)
                 expect(appleId).to.be.lessThan(afterTemplateId)
+            })
+        })
+        it('replaces components inside components', () => {
+            return reader.readNodes('templates/billing/billing.html').then(html => {
+                const jobsNodes = new Nodes(html).find('steve-jobs')
+                expect(jobsNodes).to.have.length(2)
             })
         })
         it('replaces component slots of templates with multiple root nodes in place', () => {
