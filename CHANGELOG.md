@@ -1,3 +1,12 @@
+# [3.5.0](https://github.com/stfsy/node-amy/compare/v3.4.1...v3.5.0) (2021-08-04)
+
+
+### Features
+
+* render components inside components too ([068a17c](https://github.com/stfsy/node-amy/commit/068a17cf414f13b383a803082c6a5a9d6cdf6c1d))
+
+
+
 ## [3.4.1](https://github.com/stfsy/node-amy/compare/v3.4.0...v3.4.1) (2021-08-03)
 
 

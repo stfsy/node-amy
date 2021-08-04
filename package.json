@@ -1,6 +1,6 @@
 {
   "name": "node-amy",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "description": "A HTML template framework without client-side JavaScript dependencies",
   "main": "lib/amy.js",
   "bin": {
