@@ -259,6 +259,20 @@ describe.only('PreCompilingReader', () => {
                 expect(node.attributes[attribute]).to.equal('true')
             })
         })
+        it('creates a function removes the conditional template node with children', () => {
+            const node = Node.fromString('<body><amy:conditional-template render="name"><span id="text">Hello</span></amy:conditional-template></body>')
+            const result = reader._precompile([node])
+            Object.entries(result[0].conditionalTemplate).forEach(entry => entry[1](node, {}))
+            expect(node.find('span')).to.have.length(0)
+            expect(node.find('amy:conditional-template')).to.have.length(0)
+        })
+        it('creates a function removes the conditional template and adds children to parent', () => {
+            const node = Node.fromString('<body><amy:conditional-template render="name"><span id="text">Hello</span></amy:conditional-template></body>')
+            const result = reader._precompile([node])
+            Object.entries(result[0].conditionalTemplate).forEach(entry => entry[1](node, { name: true }))
+            expect(node.find('span')).to.have.length(1)
+            expect(node.find('amy:conditional-template')).to.have.length(0)
+        })
         it('creates a function that interpolates text content', () => {
             const node = Node.fromString('<body class="Hello {{name}}!">{{ subscription }}</body>')
             const result = reader._precompile([node])
