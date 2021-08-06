@@ -1,3 +1,12 @@
+# [3.6.0](https://github.com/stfsy/node-amy/compare/v3.5.0...v3.6.0) (2021-08-06)
+
+
+### Features
+
+* allow conditional rendering of nodes ([95f3f0a](https://github.com/stfsy/node-amy/commit/95f3f0a45ba32366f057c9d8cd6ade2173b487b1))
+
+
+
 # [3.5.0](https://github.com/stfsy/node-amy/compare/v3.4.1...v3.5.0) (2021-08-04)
 
 
