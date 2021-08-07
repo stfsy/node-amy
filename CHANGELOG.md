@@ -1,3 +1,12 @@
+## [3.6.1](https://github.com/stfsy/node-amy/compare/v3.6.0...v3.6.1) (2021-08-07)
+
+
+### Bug Fixes
+
+* compiler does not remove conditional templates ([789a72a](https://github.com/stfsy/node-amy/commit/789a72a6a992f7e6444385c39b325e465abcc3f9))
+
+
+
 # [3.6.0](https://github.com/stfsy/node-amy/compare/v3.5.0...v3.6.0) (2021-08-06)
 
 
