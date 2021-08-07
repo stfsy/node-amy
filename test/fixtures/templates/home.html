@@ -6,6 +6,9 @@
 </head>
 
 <body id="{{id}}" nonce="{{nonce}}">
+    <amy:conditional-template render="render">
+        <span id="conditional">Conditional Span</span>
+    </amy:conditional-template>
     <!-- @amy import test/fixtures/templates/main/header.html with user as user -->
     <!-- @amy import test/fixtures/templates/shopping/phones.html -->
     <!-- @amy import test/fixtures/templates/shopping/listing.html forEach phones as phone -->

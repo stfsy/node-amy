@@ -58,7 +58,7 @@ module.exports = (compilerProvider) => {
             })
         })
         it('caches files if cache flag is set', () => {
-            return compiler.compile(homeHtmlPath, context,true).then((html) => {
+            return compiler.compile(homeHtmlPath, context, true).then((html) => {
                 expect(html).to.contain('Hello Tony!')
             }).then(() => {
                 context.user.name.first = 'Ben'
@@ -71,6 +71,22 @@ module.exports = (compilerProvider) => {
     })
 
     describe('._compileFile', () => {
+        it('removes conditional template nodes', () => {
+            context.render = false
+            return compiler._compileFile('test/fixtures/templates', 'home.html', context, true)
+                .then((contents) => {
+                    const span = new Nodes(contents).find({ name: 'span' })[0]
+                    expect(span.attributes.id).not.to.equal('conditional')
+                })
+        })
+        it('keeps children of conditional template nodes', () => {
+            context.render = true
+            return compiler._compileFile('test/fixtures/templates', 'home.html', context, true)
+                .then((contents) => {
+                    const span = new Nodes(contents).find({ name: 'span' })[0]
+                    expect(span.attributes.id).to.equal('conditional')
+                })
+        })
         it('resolves multiple attributes on the first imported node', () => {
             return compiler._compileFile('test/fixtures/templates', 'checkout.html', context, true)
                 .then((contents) => {
