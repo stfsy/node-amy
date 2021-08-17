@@ -1,3 +1,12 @@
+## [3.6.2](https://github.com/stfsy/node-amy/compare/v3.6.1...v3.6.2) (2021-08-17)
+
+
+### Bug Fixes
+
+* conditional elem does not interpolate  render attribute ([a1ee988](https://github.com/stfsy/node-amy/commit/a1ee988ecb8365216388e90b2e8371ff2fa8bae9))
+
+
+
 ## [3.6.1](https://github.com/stfsy/node-amy/compare/v3.6.0...v3.6.1) (2021-08-07)
 
 
