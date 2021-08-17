@@ -268,7 +268,6 @@ describe.only('PreCompilingReader', () => {
         })
         it('creates a function removes the conditional template node with children', () => {
             const node = Node.fromString('<body><amy:conditional-template render="{{ name }}"><span id="text">Hello</span></amy:conditional-template></body>')
-            console.log(node.children[0].attributes)
             const result = reader._precompile([node])
             Object.entries(result[0].conditionalTemplate).forEach(entry => entry[1](node, {}))
             expect(node.find('span')).to.have.length(0)
