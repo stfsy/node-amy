@@ -291,6 +291,17 @@ describe.only('PreCompilingReader', () => {
             expect(node.find('span')).to.have.length(1)
             expect(node.find('amy:conditional-template')).to.have.length(0)
         })
+        it('does not interpolate if nested values in the context attribute is "false"', () => {
+            const node = Node.fromString('<body><amy:conditional-template render="{{name.cherry}}"><span id="text">Hello</span></amy:conditional-template></body>')
+            const result = reader._precompile([node])
+            Object.entries(result[0].conditionalTemplate).forEach(entry => entry[1](node, {
+                name: {
+                    cherry: 'false'
+                }
+            }))
+            expect(node.find('span')).to.have.length(0)
+            expect(node.find('amy:conditional-template')).to.have.length(0)
+        })
         it('creates a function that interpolates text content', () => {
             const node = Node.fromString('<body class="Hello {{name}}!">{{ subscription }}</body>')
             const result = reader._precompile([node])
