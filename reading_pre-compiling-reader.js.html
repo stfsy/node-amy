@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>reading/pre-compiling-reader.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Amy.html">Amy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Amy.html#.compileTemplates">compileTemplates</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Builder.html">Builder</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Builder.html#buildPathFromParentToNode">buildPathFromParentToNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CharacterValidator.html">CharacterValidator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CharacterValidator.html#isValid">isValid</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CommandParser.html">CommandParser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#isParseable">isParseable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#parseLine">parseLine</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileReader.html">FileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#matchFiles">matchFiles</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNode">readNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNodes">readNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileWriter.html">FileWriter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNode">writeNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNodes">writeNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html">ScriptStyleTagHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html#computeHashValues">computeHashValues</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringInterpolator.html">StringInterpolator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#canInterpolate">canInterpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolatables">interpolatables</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolate">interpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#valueFor">valueFor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringTokenizer.html">StringTokenizer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringTokenizer.html#tokenize">tokenize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TemplateCompiler.html">TemplateCompiler</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#_compileFile">_compileFile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#compile">compile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#initialize">initialize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TextNodeHasher.html">TextNodeHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TextNodeHasher.html#hash">hash</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">reading/pre-compiling-reader.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+const Parser = require('../parsing/parser2')
+const Writer = require('../writing/html-string-writer')
+const Reader = require('./reader')
+const ComponentRegistry = require('./component-registry-reader')
+const Interpolator = require('../compiling/interpolator')
+const PathBuilder = require('../traversing/path-builder')
+const createError = require('../utilities/error')
+
+const resolve = require('path').resolve
+const crypto = require('crypto')
+const Nodes = require('node-html-light').Nodes
+const Node = require('node-html-light').Node
+
+const htmlParser = require('htmlparser2')
+const domUtils = htmlParser.DomUtils
+
+class PrecompilingReader extends Reader {
+
+    constructor(basePath, options = {}) {
+        super(basePath)
+
+        if (options.registry &amp;&amp; options.registry.enabled) {
+            this._componentRegistry = new ComponentRegistry(basePath, options.registry)
+        }
+        this._parser = new Parser()
+        this._writer = new Writer()
+        this._interpolator = new Interpolator()
+        this._pathBuilder = new PathBuilder()
+        this._precompileResults = {}
+        this._htmlFileCache = {}
+
+        this._attributes_to_remove_if_value_false = ['autofocus', 'checked', 'disabled', 'required']
+    }
+
+    initialize() {
+        if (this._componentRegistry) {
+            if (!this._basePath) {
+                throw createError('To enable component registry, please set a basePath in your Compiler. Current value is: ' + this._basePath + ' with length ' + this._basePath.length)
+            }
+            return this._componentRegistry.initializeRegistry()
+        } else {
+            return Promise.resolve()
+        }
+    }
+
+    /** 
+     * @param {Array&lt;String>} arguments an array of path elements that will, 
+     * once joined and resolved relative to the root directory, point to a html file that will be read and parsed
+     * 
+     * This specialized method will also precompile each fragment / HTML file to speed up compilation process
+     * 
+     * @returns {Array&lt;Node>} an array of HTML Nodes
+    */
+    readNodes(root, path) {
+        if (!path) {
+            path = root
+            root = this._basePath
+        }
+
+        const cachePath = path
+
+        if (Object.prototype.hasOwnProperty.call(this._htmlFileCache, cachePath)) {
+            const text = this._htmlFileCache[cachePath]
+            const node = Node.fromString(text)
+            return Promise.resolve(this._isArrayElseToArray(node))
+        }
+
+        const resolvedPath = resolve(root, path)
+        return this._readFileFromDisk(resolvedPath).then((html) => {
+
+            let node = Node.fromString(html)
+            let nodes = this._isArrayElseToArray(node)
+
+            const htmlWithComponents = this._resolveComponents(nodes)
+            this._htmlFileCache[cachePath] = htmlWithComponents
+
+            node = Node.fromString(htmlWithComponents)
+            nodes = this._isArrayElseToArray(node)
+
+            if (!this._precompileResults[cachePath]) {
+                const result = this._precompile(nodes)
+                this._precompileResults[cachePath] = result
+            }
+
+            return nodes
+        })
+    }
+
+    /** @private */
+    _resolveComponents(nodes) {
+        if (this._componentRegistry) {
+            for (let index = nodes.length - 1; index >= 0; index--) {
+                const root = nodes[index]
+                root.filterByType((node) => {
+                    const name = node.name
+                    if (this._componentRegistry.hasComponent(name)) {
+
+                        const component = this._componentRegistry.getComponent(name)
+                        if (!component.template || typeof component.template !== 'function') {
+                            throw createError(`Component with name "${name}" has no template function. Value of ${name}.template is ${component.template}`)
+                        }
+
+                        if (!component.render || typeof component.render !== 'function') {
+                            throw createError(`Component with name "${name}" has no render function. Value of ${name}.render is ${component.render}`)
+                        }
+
+                        const componentNodes = this._isArrayElseToArray(Node.fromString(component.template()))
+                        let renderedNodes = component.render(componentNodes, node.attribs)
+
+                        if (!renderedNodes) {
+                            throw createError(`No nodes for precompilation available. 
+
+Does the render function of "${name}" return nodes?"
+                            
+${component.render.toString()}
+                            `)
+                        }
+
+                        if (!node.parent || node.parent.type === 'root') {
+                            nodes[index] = renderedNodes[0]
+
+                            renderedNodes.slice(1).reverse().forEach((componentNode) => {
+                                nodes.splice(index + 1, 0, componentNode)
+                            })
+                        } else {
+                            renderedNodes.reverse().forEach((componentNode) => {
+                                root.appendChildAfter(componentNode, Node.of(node))
+                            })
+
+                            root.removeChild(Node.of(node))
+                        }
+
+                        this._resolveComponentsTemplatesAndSlots(renderedNodes, Node.of(node))
+                        this._resolveComponents(renderedNodes)
+                    }
+                }, [Node.TYPE_TAG])
+            }
+        }
+        return this._writer.toHtmlString(nodes)
+    }
+
+    _resolveComponentsTemplatesAndSlots(componentTemplate, htmlPlaceholderNode) {
+        const templates = this._findTemplateTagsRecursively(htmlPlaceholderNode)
+        const slots = componentTemplate.reduce((current, next) => {
+            return current.concat(next.find('slot'))
+        }, [])
+
+        if (slots.length !== templates.length) {
+            throw createError(`Uneven number of templates and slots. "${htmlPlaceholderNode.toHtml()}" has ${templates.length} templates and component "${this._writer.toHtmlString(componentTemplate)}" has ${slots.length} slots.`)
+        }
+
+        /**
+         * @typedef {Object} SlotAndTemplate
+         * @property {Node} slot
+         * @property {Array.&lt;Node>} template
+         */
+
+        /**
+         * @type {Array.&lt;SlotAndTemplate>}
+         */
+        const slotsAndTemplatesByName = slots.reduce((current, next) => {
+            let name = next.attributes.name
+            const templatesForName = templates.filter(template => template.attributes.slot === name)
+
+            if (!templatesForName[0]) {
+                throw createError(`Could not find a template for slot with name "${name}" element in "${htmlPlaceholderNode.toHtml()}"`)
+            }
+            if (name &amp;&amp; Object.prototype.hasOwnProperty.call(current, name)) {
+                throw createError(`There is more than one slot with name "${name}" in "${componentTemplate.toHtml}"`)
+            }
+            if (!name) {
+                name = ''
+            }
+            if (!current[name]) {
+                current[name] = []
+            }
+
+            current[name].push({
+                slot: next,
+                template: templatesForName[0].children
+            })
+            return current
+        }, {})
+
+        Object.entries(slotsAndTemplatesByName).forEach(([, [{ slot, template }]]) => {
+            template.reverse().forEach((template) => {
+                slot.root.appendChildAfter(template, slot)
+            })
+
+            slot.root.removeChild(slot)
+        })
+
+        return componentTemplate
+    }
+
+    /**
+     * Search child elements of the given node for template elements. To allow nesting of components, search will end when another Component element
+     * was found in child elemens
+     * 
+     * @private
+     * @param {Node} search the root node
+     * @returns {Array.&lt;Nodes>} found template elements
+     */
+    _findTemplateTagsRecursively(search) {
+        const templateNodes = []
+
+        search.children.forEach(searchNode => {
+            domUtils.filter((n) => {
+                const node = new Node(n)
+                const name = node.name
+                if (this._componentRegistry.hasComponent(name)) {
+                    return
+                } else if (name === 'template') {
+                    templateNodes.push(node)
+                } else if (node.type === Node.TYPE_TAG) {
+                    templateNodes.push(this._findTemplateTagsRecursively(node))
+                }
+
+            }, searchNode.get(), false, Infinity)
+        }, [])
+
+        return templateNodes
+    }
+
+    /** @private */
+    _precompile(nodes) {
+        const result = []
+
+        new Nodes(nodes).forEach((node, index) => {
+            if (!result[index]) {
+                result[index] = {
+                    attributes: {},
+                    commands: {},
+                    conditionalTemplate: {},
+                    forEach: {},
+                    add: {},
+                    if: {},
+                    include: {},
+                    import: {},
+                    text: {}
+                }
+            }
+
+            node.filterByType((node) => {
+                const type = node.type
+                const attributes = node.attribs
+
+                if (type === Node.TYPE_TAG || type === Node.TYPE_STYLE || type === Node.TYPE_SCRIPT) {
+                    for (let key in attributes) {
+                        const value = attributes[key]
+                        if (node.name === 'amy:conditional-template') {
+                            this._handleConditionalTemplate(node, result, index)
+                        } else if (this._interpolator.canInterpolate(value)) {
+                            this._handleInterpolatableAttribute(node, result, index, value, key)
+                        }
+                    }
+                }
+
+                if (type === Node.TYPE_COMMENT) {
+                    const text = node.data
+                    if (this._parser.isParseable(text)) {
+                        this._handleParseableCommand(node, text, result, index)
+                    }
+                }
+
+                if (type === Node.TYPE_TEXT) {
+                    const text = node.data
+                    if (this._interpolator.canInterpolate(text)) {
+                        this._handleInterpolatableText(node, text, result, index)
+                    }
+                }
+            }, [Node.TYPE_TAG, Node.TYPE_STYLE, Node.TYPE_SCRIPT, Node.TYPE_COMMENT, Node.TYPE_TEXT])
+        })
+
+        return result
+    }
+
+    _handleInterpolatableAttribute(node, result, index, value, key) {
+        const id = this._createId()
+        const path = this._pathBuilder.buildPathFromParentToNode(node)
+
+        result[index].attributes[id] = (node, context) => {
+            const target = path.reduce((parent, index) => {
+                return parent.children[index]
+            }, node.get())
+
+            const newValue = this._interpolator.interpolate(value, context)
+            if (newValue === 'false' &amp;&amp; this._attributes_to_remove_if_value_false.includes(key)) {
+                delete target.attribs[key]
+            } else {
+                target.attribs[key] = newValue
+            }
+        }
+    }
+
+    _createId() {
+        return crypto.randomBytes(32).toString('base64')
+    }
+
+    _handleConditionalTemplate(node, result, index) {
+        const id = this._createId()
+        const path = this._pathBuilder.buildPathFromParentToNode(node)
+
+        result[index].conditionalTemplate[id] = (node, context) => {
+            const target = new Node(path.reduce((parent, index) => {
+                return parent.children[index]
+            }, node.get()))
+
+            const replace = this._interpolator.interpolate(target.attributes.render, context)
+            if (replace &amp;&amp; replace !== 'false') {
+                target.children.forEach((child) => {
+                    target.parent.appendChildBefore(child, target)
+                })
+            }
+            target.parent.removeChild(target)
+        }
+    }
+
+    _handleParseableCommand(node, text, result, index) {
+        const id = this._createId()
+        const path = this._pathBuilder.buildPathFromParentToNode(node)
+        const commands = this._parser.parseLine(text)
+
+        let command
+
+        if (this._hasCommandWithName(commands, 'if')) {
+            command = 'if'
+        } else if (this._hasCommandWithName(commands, 'forEach')) {
+            command = 'forEach'
+        } else if (this._hasCommandWithName(commands, 'import')) {
+            command = 'import'
+        } else if (this._hasCommandWithName(commands, 'add')) {
+            command = 'add'
+        } else if (this._hasCommandWithName(commands, 'include')) {
+            command = 'include'
+        }
+
+        result[index][command][id] = (node, context, callback) => {
+            const target = path.reduce((parent, index) => {
+                return parent.children[index]
+            }, node.get())
+            callback(new Node(target))
+        }
+        result[index].commands[id] = (node, context, callback) => {
+            const target = path.reduce((parent, index) => {
+                return parent.children[index]
+            }, node.get())
+            callback(new Node(target))
+        }
+    }
+
+    _handleInterpolatableText(node, text, result, index) {
+        const id = this._createId()
+        const path = this._pathBuilder.buildPathFromParentToNode(node)
+        const tokens = this._interpolator.interpolatables(text)
+
+        result[index].text[id] = (node, context) => {
+            const target = path.reduce((parent, index) => {
+                return parent.children[index]
+            }, node.get())
+
+            target.data = this._interpolator.interpolateWithTokens(tokens, context)
+        }
+    }
+
+    _hasCommandWithName(commands, name) {
+        return commands.find(command => command.name() === name)
+    }
+}
+
+module.exports = PrecompilingReader</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>tokenizing/tokenizer.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Amy.html">Amy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Amy.html#.compileTemplates">compileTemplates</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Builder.html">Builder</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Builder.html#buildPathFromParentToNode">buildPathFromParentToNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CharacterValidator.html">CharacterValidator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CharacterValidator.html#isValid">isValid</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CommandParser.html">CommandParser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#isParseable">isParseable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#parseLine">parseLine</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileReader.html">FileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#matchFiles">matchFiles</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNode">readNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNodes">readNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileWriter.html">FileWriter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNode">writeNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNodes">writeNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html">ScriptStyleTagHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html#computeHashValues">computeHashValues</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringInterpolator.html">StringInterpolator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#canInterpolate">canInterpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolatables">interpolatables</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolate">interpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#valueFor">valueFor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringTokenizer.html">StringTokenizer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringTokenizer.html#tokenize">tokenize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TemplateCompiler.html">TemplateCompiler</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#_compileFile">_compileFile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#compile">compile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#initialize">initialize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TextNodeHasher.html">TextNodeHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TextNodeHasher.html#hash">hash</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">tokenizing/tokenizer.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+const Validator = require('../validating/validator')
+
+/** */
+class StringTokenizer {
+    /** */
+    constructor() {
+
+        this._BLANK_SPACE = ' '
+        this._validator = new Validator.Builder()
+            .allowDot()
+            .allowAt()
+            .allowDash()
+            .allowForwardSlash()
+            .allowUpperCaseLetters()
+            .allowLowerCaseLetters()
+            .allowRoundBrackets()
+            .allowCurlyBrackets()
+            .allowDigits()
+            .build()
+    }
+
+    /** 
+     * @param {String} string the string to be splitted into multiple tokens
+     * @returns {Array&lt;String>} an array of tokens. the 
+     * @example
+     * const tokens = tokenizer.tokenize('@amy import(abc/def.html).with(abc.d.e.f.g)')
+     * // tokens[0] => @amy
+     * // tokens[1] => import(abc/def.html).with(abc.d.e.f.g)
+     * 
+     * @example
+     * const tokens = tokenizer.tokenize('@amy import abc/def.html with abc.d.e.f.g ')
+     * // tokens[0] => @amy
+     * // tokens[1] => import
+     * // tokens[2] => abc/def.html
+     * // tokens[3] => with
+     * // tokens[4] => abc.d.e.f.g
+    */
+    tokenize(string) {
+        const tokens = []
+        let buffer = ['']
+
+        for (let i = 0, n = string.length; i &lt; n; i++) {
+            if (string.charAt(i) === this._BLANK_SPACE) {
+                /* istanbul ignore else */
+                if (buffer.length > 1) {
+                    tokens.push(buffer.join(''))
+                    buffer = ['']
+                }
+            }
+            if (this._validator.isValid(string, i)) {
+                buffer.push(string.charAt(i))
+            }
+        }
+
+        if (buffer.length > 1) {
+            tokens.push(buffer.join(''))
+        }
+
+        return tokens
+    }
+}
+
+module.exports = StringTokenizer</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

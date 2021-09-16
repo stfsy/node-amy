@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>compiling/interpolator.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Amy.html">Amy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Amy.html#.compileTemplates">compileTemplates</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Builder.html">Builder</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Builder.html#buildPathFromParentToNode">buildPathFromParentToNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CharacterValidator.html">CharacterValidator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CharacterValidator.html#isValid">isValid</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CommandParser.html">CommandParser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#isParseable">isParseable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#parseLine">parseLine</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileReader.html">FileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#matchFiles">matchFiles</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNode">readNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNodes">readNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileWriter.html">FileWriter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNode">writeNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNodes">writeNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html">ScriptStyleTagHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html#computeHashValues">computeHashValues</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringInterpolator.html">StringInterpolator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#canInterpolate">canInterpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolatables">interpolatables</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolate">interpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#valueFor">valueFor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringTokenizer.html">StringTokenizer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringTokenizer.html#tokenize">tokenize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TemplateCompiler.html">TemplateCompiler</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#_compileFile">_compileFile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#compile">compile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#initialize">initialize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TextNodeHasher.html">TextNodeHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TextNodeHasher.html#hash">hash</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">compiling/interpolator.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+const PLACEHOLDER_START_SYMBOL = '{{'
+const PLACEHOLDER_END_SYMBOL = '}}'
+
+/** */
+class StringInterpolator {
+
+    /** 
+     * Returns true if the string contains a placeholder that can be interpolated
+     * @param {String} string the string to be interpolated
+     * @returns {boolean} 
+     * @example
+     *  const string = 'I got a new phone! It's a {{ phone.manufacture.name }}!'
+     * 
+     * const canInterpolate = interpolator.canInterpolate(string)
+     * // canInterpolate => true
+    */
+    canInterpolate(string) {
+        return string.includes(PLACEHOLDER_START_SYMBOL) &amp;&amp; string.includes(PLACEHOLDER_END_SYMBOL)
+    }
+
+    /** 
+     * Returns an object containing placeholders and static strings
+     * @param {String} string the string to be interpolated
+     * @returns {Object} 
+     * @example
+     *  const string = 'I got a new phone! It's a {{ phone.manufacture.name }}!'
+     * 
+     * const canInterpolate = interpolator.interpolatables(string)
+     * // canInterpolate => true
+    */
+    interpolatables(string) {
+        return this._tokenize(string)
+    }
+
+    /** 
+     * Interpolates the given string by searching for placeholders/handlebars and resolving the values using
+     * the given context
+     * @param {String} string the string to be interpolated
+     * @param {Object} context the context the interpolated values are resolved against
+     * @returns {String} the interpolated String 
+     * @example
+     *  const string = 'I got a new phone! It's a {{ phone.manufacture.name }}!'
+     * 
+     *  const context = {
+     *     phone: {
+     *        manufacturer: {
+     *             name: 'Pixus'
+     *         }
+     *      }
+     *  }
+     *
+     * const propertyPath = 'phone.manufacturer.name'
+     * const value = interpolator.interpolate(propertyPath, context)
+     * // value => 'I got a new phone! It's a Pixus!'
+    */
+    interpolate(string, context) {
+        const tokens = this._tokenize(string)
+        return this.interpolateWithTokens(tokens, context)
+    }
+
+    interpolateWithTokens(tokens, context) {
+        const staticTokens = tokens.statics
+        const interpolatableTokens = tokens.interpolatables
+
+        const result = []
+
+        const loopCount = Math.max(staticTokens.length, interpolatableTokens.length)
+
+        for(let i = 0, n = loopCount; i &lt; n; i++) {
+            
+            if (i &lt; staticTokens.length) {
+                result.push(staticTokens[i])
+            }
+
+            if (i &lt; interpolatableTokens.length) {
+                const value = this.valueFor(interpolatableTokens[i], context)
+                result.push(value)
+            }
+        }
+
+        return result.join('')
+    }
+
+    /** 
+     * Extracts a property out of a given context. Properties can be looked up deeply by specifying the correct
+     * names of the objects all along the path to the value we want to get. Names have to be separated by dots.
+     * @param {String} propertyPath the path to lookup the value we want
+     * @param {Object} context the context the value is resolved against
+     * @returns {Any} 
+     * @example
+     *  const context = {
+     *     phone: {
+     *        manufacturer: {
+     *             name: 'Sammy'
+     *         }
+     *      }
+     *  }
+     *
+     * const propertyPath = 'phone.manufacturer.name'
+     * const value = interpolator.valueFor(propertyPath, context)
+     * // value => 'Sammy'
+    */
+    valueFor(propertyPath, context) {
+        
+        if (!propertyPath) {
+            return context
+        }
+
+        const splittedPath = propertyPath.split('.')
+
+        return splittedPath.reduce((previous, current) => {
+            return previous ? previous[current] : ''
+        }, context)
+    }
+
+    /** @private */
+    _tokenize(string) {
+
+        const statics = []
+        const interpolatables = []
+
+        let buffer = []
+
+        for (let i = 0, n = string.length; i&lt;n; i++) {
+            const char = string.charAt(i)
+            const nextChar = string.charAt(i+1)
+
+            if (char === '{' &amp;&amp; nextChar === '{') {
+                statics.push(buffer.join(''))
+                buffer = []
+                i++
+            } else if (char === '}' &amp;&amp; nextChar === '}') {
+                interpolatables.push(buffer.join('').trim())
+                buffer = []
+                i++
+            } else {
+                buffer.push(char)
+            }
+        }
+
+        if (buffer.length) {
+            statics.push(buffer.join(''))
+        }
+
+        return { statics: statics, interpolatables: interpolatables }
+    }
+}
+
+module.exports = StringInterpolator</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

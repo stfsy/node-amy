@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>validating/validator.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Amy.html">Amy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Amy.html#.compileTemplates">compileTemplates</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Builder.html">Builder</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Builder.html#buildPathFromParentToNode">buildPathFromParentToNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CharacterValidator.html">CharacterValidator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CharacterValidator.html#isValid">isValid</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CommandParser.html">CommandParser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#isParseable">isParseable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CommandParser.html#parseLine">parseLine</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileReader.html">FileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#matchFiles">matchFiles</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNode">readNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileReader.html#readNodes">readNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="FileWriter.html">FileWriter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNode">writeNode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="FileWriter.html#writeNodes">writeNodes</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html">ScriptStyleTagHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ScriptStyleTagHasher.html#computeHashValues">computeHashValues</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringInterpolator.html">StringInterpolator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#canInterpolate">canInterpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolatables">interpolatables</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#interpolate">interpolate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringInterpolator.html#valueFor">valueFor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StringTokenizer.html">StringTokenizer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="StringTokenizer.html#tokenize">tokenize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TemplateCompiler.html">TemplateCompiler</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#_compileFile">_compileFile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#compile">compile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TemplateCompiler.html#initialize">initialize</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TextNodeHasher.html">TextNodeHasher</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TextNodeHasher.html#hash">hash</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">validating/validator.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+const DashValidator = require('./charCodeValidator/dashValidator')
+const AtValidator = require('./charCodeValidator/atValidator')
+const BlankSpaceValidator = require('./charCodeValidator/blankSpaceValidator')
+const DotValidator = require('./charCodeValidator/dotValidator')
+const ForwardSlashValidator = require('./charCodeValidator/forwardSlashValidator')
+const LowerCaseValidator = require('./charCodeValidator/lowercaseLetterValidator')
+const RoundBracketValidator = require('./charCodeValidator/roundBracketValidator')
+const CurlyBracketValidator = require('./charCodeValidator/curlyBracketValidator')
+const UpperCaseValidator = require('./charCodeValidator/uppercaseLetterValidator')
+const DigitsValidator = require('./charCodeValidator/digitsValidator')
+
+/** */
+class CharacterValidator {
+
+    constructor(validators) {
+        this._validators = validators
+    }
+
+    static get Builder() {
+
+        return Builder
+    }
+
+    /** 
+     * Checks if a string contains a valid or invalid character at a given index. This check is very strict
+     * and may be simplified in the future
+     * @param {String} string the string that contains the character to be validated
+     * @param {Number} index the index of the character
+     * @returns {boolean} true if the character is a valid character, false if not
+    */
+    isValid(string, index) {
+        return this._validators.some(validator => validator.isValid(string, index))
+    }
+}
+
+/** 
+ * @memberof Validator
+ * @private 
+ * */
+class Builder {
+
+    constructor() {
+        this._validators = []
+    }
+
+    allowDash() {
+        this._validators.push(new DashValidator())
+        return this
+    }
+
+    /** */
+    allowAt() {
+        this._validators.push(new AtValidator())
+        return this
+    }
+
+    /** */
+    allowBlank() {
+        this._validators.push(new BlankSpaceValidator())
+        return this
+    }
+
+    /** */
+    allowDot() {
+        this._validators.push(new DotValidator())
+        return this
+    }
+
+    /** */
+    allowForwardSlash() {
+        this._validators.push(new ForwardSlashValidator())
+        return this
+    }
+
+    /** */
+    allowRoundBrackets() {
+        this._validators.push(new RoundBracketValidator())
+        return this
+    }
+
+    /** */
+    allowCurlyBrackets() {
+        this._validators.push(new CurlyBracketValidator())
+        return this
+    }
+
+    /** */
+    allowUpperCaseLetters() {
+        this._validators.push(new UpperCaseValidator())
+        return this
+    }
+
+    /** */
+    allowLowerCaseLetters() {
+        this._validators.push(new LowerCaseValidator())
+        return this
+    }
+
+    allowDigits() {
+        this._validators.push(new DigitsValidator())
+        return this
+    }
+
+    /** */
+    build() {
+        return new CharacterValidator(this._validators)
+    }
+}
+
+module.exports = CharacterValidator</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
