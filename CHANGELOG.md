@@ -1,3 +1,17 @@
+# [3.7.0](https://github.com/stfsy/node-amy/compare/v3.6.2...v3.7.0) (2021-09-16)
+
+
+### Bug Fixes
+
+* strings with value false are treated truthy ([3d3520f](https://github.com/stfsy/node-amy/commit/3d3520f7f0bdc163217bd7b28038eb87abb88088))
+
+
+### Features
+
+* update node-html-light ([8d8474f](https://github.com/stfsy/node-amy/commit/8d8474f333fad5c8727a8715146e9bfd9c26ea0b))
+
+
+
 ## [3.6.2](https://github.com/stfsy/node-amy/compare/v3.6.1...v3.6.2) (2021-08-17)
 
 
