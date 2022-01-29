@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "commander": "^7.2.0",
-    "globby": "^11.0.4",
+    "globby": "^11.1.0",
     "node-html-light": "^2.12.0"
   }
 }
